@@ -106,7 +106,7 @@ Constructs CancelExportTaskRequest's fields from required parameters
 
 ``` purescript
 newtype CreateExportTaskRequest
-  = CreateExportTaskRequest { taskName :: NullOrUndefined (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: NullOrUndefined (ExportDestinationPrefix) }
+  = CreateExportTaskRequest { taskName :: Maybe (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: Maybe (ExportDestinationPrefix) }
 ```
 
 ##### Instances
@@ -129,7 +129,7 @@ Constructs CreateExportTaskRequest from required parameters
 #### `newCreateExportTaskRequest'`
 
 ``` purescript
-newCreateExportTaskRequest' :: ExportDestinationBucket -> Timestamp -> LogGroupName -> Timestamp -> ({ taskName :: NullOrUndefined (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: NullOrUndefined (ExportDestinationPrefix) } -> { taskName :: NullOrUndefined (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: NullOrUndefined (ExportDestinationPrefix) }) -> CreateExportTaskRequest
+newCreateExportTaskRequest' :: ExportDestinationBucket -> Timestamp -> LogGroupName -> Timestamp -> ({ taskName :: Maybe (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: Maybe (ExportDestinationPrefix) } -> { taskName :: Maybe (ExportTaskName), logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), from :: Timestamp, to :: Timestamp, destination :: ExportDestinationBucket, destinationPrefix :: Maybe (ExportDestinationPrefix) }) -> CreateExportTaskRequest
 ```
 
 Constructs CreateExportTaskRequest's fields from required parameters
@@ -138,7 +138,7 @@ Constructs CreateExportTaskRequest's fields from required parameters
 
 ``` purescript
 newtype CreateExportTaskResponse
-  = CreateExportTaskResponse { taskId :: NullOrUndefined (ExportTaskId) }
+  = CreateExportTaskResponse { taskId :: Maybe (ExportTaskId) }
 ```
 
 ##### Instances
@@ -161,7 +161,7 @@ Constructs CreateExportTaskResponse from required parameters
 #### `newCreateExportTaskResponse'`
 
 ``` purescript
-newCreateExportTaskResponse' :: ({ taskId :: NullOrUndefined (ExportTaskId) } -> { taskId :: NullOrUndefined (ExportTaskId) }) -> CreateExportTaskResponse
+newCreateExportTaskResponse' :: ({ taskId :: Maybe (ExportTaskId) } -> { taskId :: Maybe (ExportTaskId) }) -> CreateExportTaskResponse
 ```
 
 Constructs CreateExportTaskResponse's fields from required parameters
@@ -170,7 +170,7 @@ Constructs CreateExportTaskResponse's fields from required parameters
 
 ``` purescript
 newtype CreateLogGroupRequest
-  = CreateLogGroupRequest { logGroupName :: LogGroupName, kmsKeyId :: NullOrUndefined (KmsKeyId), tags :: NullOrUndefined (Tags) }
+  = CreateLogGroupRequest { logGroupName :: LogGroupName, kmsKeyId :: Maybe (KmsKeyId), tags :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -193,7 +193,7 @@ Constructs CreateLogGroupRequest from required parameters
 #### `newCreateLogGroupRequest'`
 
 ``` purescript
-newCreateLogGroupRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, kmsKeyId :: NullOrUndefined (KmsKeyId), tags :: NullOrUndefined (Tags) } -> { logGroupName :: LogGroupName, kmsKeyId :: NullOrUndefined (KmsKeyId), tags :: NullOrUndefined (Tags) }) -> CreateLogGroupRequest
+newCreateLogGroupRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, kmsKeyId :: Maybe (KmsKeyId), tags :: Maybe (Tags) } -> { logGroupName :: LogGroupName, kmsKeyId :: Maybe (KmsKeyId), tags :: Maybe (Tags) }) -> CreateLogGroupRequest
 ```
 
 Constructs CreateLogGroupRequest's fields from required parameters
@@ -234,7 +234,7 @@ Constructs CreateLogStreamRequest's fields from required parameters
 
 ``` purescript
 newtype DataAlreadyAcceptedException
-  = DataAlreadyAcceptedException { expectedSequenceToken :: NullOrUndefined (SequenceToken) }
+  = DataAlreadyAcceptedException { expectedSequenceToken :: Maybe (SequenceToken) }
 ```
 
 <p>The event was already logged.</p>
@@ -259,7 +259,7 @@ Constructs DataAlreadyAcceptedException from required parameters
 #### `newDataAlreadyAcceptedException'`
 
 ``` purescript
-newDataAlreadyAcceptedException' :: ({ expectedSequenceToken :: NullOrUndefined (SequenceToken) } -> { expectedSequenceToken :: NullOrUndefined (SequenceToken) }) -> DataAlreadyAcceptedException
+newDataAlreadyAcceptedException' :: ({ expectedSequenceToken :: Maybe (SequenceToken) } -> { expectedSequenceToken :: Maybe (SequenceToken) }) -> DataAlreadyAcceptedException
 ```
 
 Constructs DataAlreadyAcceptedException's fields from required parameters
@@ -430,7 +430,7 @@ Constructs DeleteMetricFilterRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteResourcePolicyRequest
-  = DeleteResourcePolicyRequest { policyName :: NullOrUndefined (PolicyName) }
+  = DeleteResourcePolicyRequest { policyName :: Maybe (PolicyName) }
 ```
 
 ##### Instances
@@ -453,7 +453,7 @@ Constructs DeleteResourcePolicyRequest from required parameters
 #### `newDeleteResourcePolicyRequest'`
 
 ``` purescript
-newDeleteResourcePolicyRequest' :: ({ policyName :: NullOrUndefined (PolicyName) } -> { policyName :: NullOrUndefined (PolicyName) }) -> DeleteResourcePolicyRequest
+newDeleteResourcePolicyRequest' :: ({ policyName :: Maybe (PolicyName) } -> { policyName :: Maybe (PolicyName) }) -> DeleteResourcePolicyRequest
 ```
 
 Constructs DeleteResourcePolicyRequest's fields from required parameters
@@ -542,7 +542,7 @@ Encode Descending
 
 ``` purescript
 newtype DescribeDestinationsRequest
-  = DescribeDestinationsRequest { "DestinationNamePrefix" :: NullOrUndefined (DestinationName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeDestinationsRequest { "DestinationNamePrefix" :: Maybe (DestinationName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -565,7 +565,7 @@ Constructs DescribeDestinationsRequest from required parameters
 #### `newDescribeDestinationsRequest'`
 
 ``` purescript
-newDescribeDestinationsRequest' :: ({ "DestinationNamePrefix" :: NullOrUndefined (DestinationName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { "DestinationNamePrefix" :: NullOrUndefined (DestinationName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeDestinationsRequest
+newDescribeDestinationsRequest' :: ({ "DestinationNamePrefix" :: Maybe (DestinationName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { "DestinationNamePrefix" :: Maybe (DestinationName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeDestinationsRequest
 ```
 
 Constructs DescribeDestinationsRequest's fields from required parameters
@@ -574,7 +574,7 @@ Constructs DescribeDestinationsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeDestinationsResponse
-  = DescribeDestinationsResponse { destinations :: NullOrUndefined (Destinations), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeDestinationsResponse { destinations :: Maybe (Destinations), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -597,7 +597,7 @@ Constructs DescribeDestinationsResponse from required parameters
 #### `newDescribeDestinationsResponse'`
 
 ``` purescript
-newDescribeDestinationsResponse' :: ({ destinations :: NullOrUndefined (Destinations), nextToken :: NullOrUndefined (NextToken) } -> { destinations :: NullOrUndefined (Destinations), nextToken :: NullOrUndefined (NextToken) }) -> DescribeDestinationsResponse
+newDescribeDestinationsResponse' :: ({ destinations :: Maybe (Destinations), nextToken :: Maybe (NextToken) } -> { destinations :: Maybe (Destinations), nextToken :: Maybe (NextToken) }) -> DescribeDestinationsResponse
 ```
 
 Constructs DescribeDestinationsResponse's fields from required parameters
@@ -606,7 +606,7 @@ Constructs DescribeDestinationsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeExportTasksRequest
-  = DescribeExportTasksRequest { taskId :: NullOrUndefined (ExportTaskId), statusCode :: NullOrUndefined (ExportTaskStatusCode), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeExportTasksRequest { taskId :: Maybe (ExportTaskId), statusCode :: Maybe (ExportTaskStatusCode), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -629,7 +629,7 @@ Constructs DescribeExportTasksRequest from required parameters
 #### `newDescribeExportTasksRequest'`
 
 ``` purescript
-newDescribeExportTasksRequest' :: ({ taskId :: NullOrUndefined (ExportTaskId), statusCode :: NullOrUndefined (ExportTaskStatusCode), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { taskId :: NullOrUndefined (ExportTaskId), statusCode :: NullOrUndefined (ExportTaskStatusCode), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeExportTasksRequest
+newDescribeExportTasksRequest' :: ({ taskId :: Maybe (ExportTaskId), statusCode :: Maybe (ExportTaskStatusCode), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { taskId :: Maybe (ExportTaskId), statusCode :: Maybe (ExportTaskStatusCode), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeExportTasksRequest
 ```
 
 Constructs DescribeExportTasksRequest's fields from required parameters
@@ -638,7 +638,7 @@ Constructs DescribeExportTasksRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeExportTasksResponse
-  = DescribeExportTasksResponse { exportTasks :: NullOrUndefined (ExportTasks), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeExportTasksResponse { exportTasks :: Maybe (ExportTasks), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -661,7 +661,7 @@ Constructs DescribeExportTasksResponse from required parameters
 #### `newDescribeExportTasksResponse'`
 
 ``` purescript
-newDescribeExportTasksResponse' :: ({ exportTasks :: NullOrUndefined (ExportTasks), nextToken :: NullOrUndefined (NextToken) } -> { exportTasks :: NullOrUndefined (ExportTasks), nextToken :: NullOrUndefined (NextToken) }) -> DescribeExportTasksResponse
+newDescribeExportTasksResponse' :: ({ exportTasks :: Maybe (ExportTasks), nextToken :: Maybe (NextToken) } -> { exportTasks :: Maybe (ExportTasks), nextToken :: Maybe (NextToken) }) -> DescribeExportTasksResponse
 ```
 
 Constructs DescribeExportTasksResponse's fields from required parameters
@@ -686,7 +686,7 @@ Encode DescribeLimit
 
 ``` purescript
 newtype DescribeLogGroupsRequest
-  = DescribeLogGroupsRequest { logGroupNamePrefix :: NullOrUndefined (LogGroupName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeLogGroupsRequest { logGroupNamePrefix :: Maybe (LogGroupName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -709,7 +709,7 @@ Constructs DescribeLogGroupsRequest from required parameters
 #### `newDescribeLogGroupsRequest'`
 
 ``` purescript
-newDescribeLogGroupsRequest' :: ({ logGroupNamePrefix :: NullOrUndefined (LogGroupName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { logGroupNamePrefix :: NullOrUndefined (LogGroupName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeLogGroupsRequest
+newDescribeLogGroupsRequest' :: ({ logGroupNamePrefix :: Maybe (LogGroupName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { logGroupNamePrefix :: Maybe (LogGroupName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeLogGroupsRequest
 ```
 
 Constructs DescribeLogGroupsRequest's fields from required parameters
@@ -718,7 +718,7 @@ Constructs DescribeLogGroupsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeLogGroupsResponse
-  = DescribeLogGroupsResponse { logGroups :: NullOrUndefined (LogGroups), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeLogGroupsResponse { logGroups :: Maybe (LogGroups), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -741,7 +741,7 @@ Constructs DescribeLogGroupsResponse from required parameters
 #### `newDescribeLogGroupsResponse'`
 
 ``` purescript
-newDescribeLogGroupsResponse' :: ({ logGroups :: NullOrUndefined (LogGroups), nextToken :: NullOrUndefined (NextToken) } -> { logGroups :: NullOrUndefined (LogGroups), nextToken :: NullOrUndefined (NextToken) }) -> DescribeLogGroupsResponse
+newDescribeLogGroupsResponse' :: ({ logGroups :: Maybe (LogGroups), nextToken :: Maybe (NextToken) } -> { logGroups :: Maybe (LogGroups), nextToken :: Maybe (NextToken) }) -> DescribeLogGroupsResponse
 ```
 
 Constructs DescribeLogGroupsResponse's fields from required parameters
@@ -750,7 +750,7 @@ Constructs DescribeLogGroupsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeLogStreamsRequest
-  = DescribeLogStreamsRequest { logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), orderBy :: NullOrUndefined (OrderBy), descending :: NullOrUndefined (Descending), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeLogStreamsRequest { logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), orderBy :: Maybe (OrderBy), descending :: Maybe (Descending), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -773,7 +773,7 @@ Constructs DescribeLogStreamsRequest from required parameters
 #### `newDescribeLogStreamsRequest'`
 
 ``` purescript
-newDescribeLogStreamsRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), orderBy :: NullOrUndefined (OrderBy), descending :: NullOrUndefined (Descending), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { logGroupName :: LogGroupName, logStreamNamePrefix :: NullOrUndefined (LogStreamName), orderBy :: NullOrUndefined (OrderBy), descending :: NullOrUndefined (Descending), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeLogStreamsRequest
+newDescribeLogStreamsRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), orderBy :: Maybe (OrderBy), descending :: Maybe (Descending), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { logGroupName :: LogGroupName, logStreamNamePrefix :: Maybe (LogStreamName), orderBy :: Maybe (OrderBy), descending :: Maybe (Descending), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeLogStreamsRequest
 ```
 
 Constructs DescribeLogStreamsRequest's fields from required parameters
@@ -782,7 +782,7 @@ Constructs DescribeLogStreamsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeLogStreamsResponse
-  = DescribeLogStreamsResponse { logStreams :: NullOrUndefined (LogStreams), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeLogStreamsResponse { logStreams :: Maybe (LogStreams), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -805,7 +805,7 @@ Constructs DescribeLogStreamsResponse from required parameters
 #### `newDescribeLogStreamsResponse'`
 
 ``` purescript
-newDescribeLogStreamsResponse' :: ({ logStreams :: NullOrUndefined (LogStreams), nextToken :: NullOrUndefined (NextToken) } -> { logStreams :: NullOrUndefined (LogStreams), nextToken :: NullOrUndefined (NextToken) }) -> DescribeLogStreamsResponse
+newDescribeLogStreamsResponse' :: ({ logStreams :: Maybe (LogStreams), nextToken :: Maybe (NextToken) } -> { logStreams :: Maybe (LogStreams), nextToken :: Maybe (NextToken) }) -> DescribeLogStreamsResponse
 ```
 
 Constructs DescribeLogStreamsResponse's fields from required parameters
@@ -814,7 +814,7 @@ Constructs DescribeLogStreamsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeMetricFiltersRequest
-  = DescribeMetricFiltersRequest { logGroupName :: NullOrUndefined (LogGroupName), filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit), metricName :: NullOrUndefined (MetricName), metricNamespace :: NullOrUndefined (MetricNamespace) }
+  = DescribeMetricFiltersRequest { logGroupName :: Maybe (LogGroupName), filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit), metricName :: Maybe (MetricName), metricNamespace :: Maybe (MetricNamespace) }
 ```
 
 ##### Instances
@@ -837,7 +837,7 @@ Constructs DescribeMetricFiltersRequest from required parameters
 #### `newDescribeMetricFiltersRequest'`
 
 ``` purescript
-newDescribeMetricFiltersRequest' :: ({ logGroupName :: NullOrUndefined (LogGroupName), filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit), metricName :: NullOrUndefined (MetricName), metricNamespace :: NullOrUndefined (MetricNamespace) } -> { logGroupName :: NullOrUndefined (LogGroupName), filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit), metricName :: NullOrUndefined (MetricName), metricNamespace :: NullOrUndefined (MetricNamespace) }) -> DescribeMetricFiltersRequest
+newDescribeMetricFiltersRequest' :: ({ logGroupName :: Maybe (LogGroupName), filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit), metricName :: Maybe (MetricName), metricNamespace :: Maybe (MetricNamespace) } -> { logGroupName :: Maybe (LogGroupName), filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit), metricName :: Maybe (MetricName), metricNamespace :: Maybe (MetricNamespace) }) -> DescribeMetricFiltersRequest
 ```
 
 Constructs DescribeMetricFiltersRequest's fields from required parameters
@@ -846,7 +846,7 @@ Constructs DescribeMetricFiltersRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeMetricFiltersResponse
-  = DescribeMetricFiltersResponse { metricFilters :: NullOrUndefined (MetricFilters), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeMetricFiltersResponse { metricFilters :: Maybe (MetricFilters), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -869,7 +869,7 @@ Constructs DescribeMetricFiltersResponse from required parameters
 #### `newDescribeMetricFiltersResponse'`
 
 ``` purescript
-newDescribeMetricFiltersResponse' :: ({ metricFilters :: NullOrUndefined (MetricFilters), nextToken :: NullOrUndefined (NextToken) } -> { metricFilters :: NullOrUndefined (MetricFilters), nextToken :: NullOrUndefined (NextToken) }) -> DescribeMetricFiltersResponse
+newDescribeMetricFiltersResponse' :: ({ metricFilters :: Maybe (MetricFilters), nextToken :: Maybe (NextToken) } -> { metricFilters :: Maybe (MetricFilters), nextToken :: Maybe (NextToken) }) -> DescribeMetricFiltersResponse
 ```
 
 Constructs DescribeMetricFiltersResponse's fields from required parameters
@@ -878,7 +878,7 @@ Constructs DescribeMetricFiltersResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeResourcePoliciesRequest
-  = DescribeResourcePoliciesRequest { nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeResourcePoliciesRequest { nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -901,7 +901,7 @@ Constructs DescribeResourcePoliciesRequest from required parameters
 #### `newDescribeResourcePoliciesRequest'`
 
 ``` purescript
-newDescribeResourcePoliciesRequest' :: ({ nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeResourcePoliciesRequest
+newDescribeResourcePoliciesRequest' :: ({ nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeResourcePoliciesRequest
 ```
 
 Constructs DescribeResourcePoliciesRequest's fields from required parameters
@@ -910,7 +910,7 @@ Constructs DescribeResourcePoliciesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeResourcePoliciesResponse
-  = DescribeResourcePoliciesResponse { resourcePolicies :: NullOrUndefined (ResourcePolicies), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeResourcePoliciesResponse { resourcePolicies :: Maybe (ResourcePolicies), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -933,7 +933,7 @@ Constructs DescribeResourcePoliciesResponse from required parameters
 #### `newDescribeResourcePoliciesResponse'`
 
 ``` purescript
-newDescribeResourcePoliciesResponse' :: ({ resourcePolicies :: NullOrUndefined (ResourcePolicies), nextToken :: NullOrUndefined (NextToken) } -> { resourcePolicies :: NullOrUndefined (ResourcePolicies), nextToken :: NullOrUndefined (NextToken) }) -> DescribeResourcePoliciesResponse
+newDescribeResourcePoliciesResponse' :: ({ resourcePolicies :: Maybe (ResourcePolicies), nextToken :: Maybe (NextToken) } -> { resourcePolicies :: Maybe (ResourcePolicies), nextToken :: Maybe (NextToken) }) -> DescribeResourcePoliciesResponse
 ```
 
 Constructs DescribeResourcePoliciesResponse's fields from required parameters
@@ -942,7 +942,7 @@ Constructs DescribeResourcePoliciesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeSubscriptionFiltersRequest
-  = DescribeSubscriptionFiltersRequest { logGroupName :: LogGroupName, filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }
+  = DescribeSubscriptionFiltersRequest { logGroupName :: LogGroupName, filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }
 ```
 
 ##### Instances
@@ -965,7 +965,7 @@ Constructs DescribeSubscriptionFiltersRequest from required parameters
 #### `newDescribeSubscriptionFiltersRequest'`
 
 ``` purescript
-newDescribeSubscriptionFiltersRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) } -> { logGroupName :: LogGroupName, filterNamePrefix :: NullOrUndefined (FilterName), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (DescribeLimit) }) -> DescribeSubscriptionFiltersRequest
+newDescribeSubscriptionFiltersRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) } -> { logGroupName :: LogGroupName, filterNamePrefix :: Maybe (FilterName), nextToken :: Maybe (NextToken), limit :: Maybe (DescribeLimit) }) -> DescribeSubscriptionFiltersRequest
 ```
 
 Constructs DescribeSubscriptionFiltersRequest's fields from required parameters
@@ -974,7 +974,7 @@ Constructs DescribeSubscriptionFiltersRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeSubscriptionFiltersResponse
-  = DescribeSubscriptionFiltersResponse { subscriptionFilters :: NullOrUndefined (SubscriptionFilters), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeSubscriptionFiltersResponse { subscriptionFilters :: Maybe (SubscriptionFilters), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -997,7 +997,7 @@ Constructs DescribeSubscriptionFiltersResponse from required parameters
 #### `newDescribeSubscriptionFiltersResponse'`
 
 ``` purescript
-newDescribeSubscriptionFiltersResponse' :: ({ subscriptionFilters :: NullOrUndefined (SubscriptionFilters), nextToken :: NullOrUndefined (NextToken) } -> { subscriptionFilters :: NullOrUndefined (SubscriptionFilters), nextToken :: NullOrUndefined (NextToken) }) -> DescribeSubscriptionFiltersResponse
+newDescribeSubscriptionFiltersResponse' :: ({ subscriptionFilters :: Maybe (SubscriptionFilters), nextToken :: Maybe (NextToken) } -> { subscriptionFilters :: Maybe (SubscriptionFilters), nextToken :: Maybe (NextToken) }) -> DescribeSubscriptionFiltersResponse
 ```
 
 Constructs DescribeSubscriptionFiltersResponse's fields from required parameters
@@ -1006,7 +1006,7 @@ Constructs DescribeSubscriptionFiltersResponse's fields from required parameters
 
 ``` purescript
 newtype Destination
-  = Destination { destinationName :: NullOrUndefined (DestinationName), targetArn :: NullOrUndefined (TargetArn), roleArn :: NullOrUndefined (RoleArn), accessPolicy :: NullOrUndefined (AccessPolicy), arn :: NullOrUndefined (Arn), creationTime :: NullOrUndefined (Timestamp) }
+  = Destination { destinationName :: Maybe (DestinationName), targetArn :: Maybe (TargetArn), roleArn :: Maybe (RoleArn), accessPolicy :: Maybe (AccessPolicy), arn :: Maybe (Arn), creationTime :: Maybe (Timestamp) }
 ```
 
 <p>Represents a cross-account destination that receives subscription log events.</p>
@@ -1031,7 +1031,7 @@ Constructs Destination from required parameters
 #### `newDestination'`
 
 ``` purescript
-newDestination' :: ({ destinationName :: NullOrUndefined (DestinationName), targetArn :: NullOrUndefined (TargetArn), roleArn :: NullOrUndefined (RoleArn), accessPolicy :: NullOrUndefined (AccessPolicy), arn :: NullOrUndefined (Arn), creationTime :: NullOrUndefined (Timestamp) } -> { destinationName :: NullOrUndefined (DestinationName), targetArn :: NullOrUndefined (TargetArn), roleArn :: NullOrUndefined (RoleArn), accessPolicy :: NullOrUndefined (AccessPolicy), arn :: NullOrUndefined (Arn), creationTime :: NullOrUndefined (Timestamp) }) -> Destination
+newDestination' :: ({ destinationName :: Maybe (DestinationName), targetArn :: Maybe (TargetArn), roleArn :: Maybe (RoleArn), accessPolicy :: Maybe (AccessPolicy), arn :: Maybe (Arn), creationTime :: Maybe (Timestamp) } -> { destinationName :: Maybe (DestinationName), targetArn :: Maybe (TargetArn), roleArn :: Maybe (RoleArn), accessPolicy :: Maybe (AccessPolicy), arn :: Maybe (Arn), creationTime :: Maybe (Timestamp) }) -> Destination
 ```
 
 Constructs Destination's fields from required parameters
@@ -1234,7 +1234,7 @@ Encode ExportDestinationPrefix
 
 ``` purescript
 newtype ExportTask
-  = ExportTask { taskId :: NullOrUndefined (ExportTaskId), taskName :: NullOrUndefined (ExportTaskName), logGroupName :: NullOrUndefined (LogGroupName), from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp), destination :: NullOrUndefined (ExportDestinationBucket), destinationPrefix :: NullOrUndefined (ExportDestinationPrefix), status :: NullOrUndefined (ExportTaskStatus), executionInfo :: NullOrUndefined (ExportTaskExecutionInfo) }
+  = ExportTask { taskId :: Maybe (ExportTaskId), taskName :: Maybe (ExportTaskName), logGroupName :: Maybe (LogGroupName), from :: Maybe (Timestamp), to :: Maybe (Timestamp), destination :: Maybe (ExportDestinationBucket), destinationPrefix :: Maybe (ExportDestinationPrefix), status :: Maybe (ExportTaskStatus), executionInfo :: Maybe (ExportTaskExecutionInfo) }
 ```
 
 <p>Represents an export task.</p>
@@ -1259,7 +1259,7 @@ Constructs ExportTask from required parameters
 #### `newExportTask'`
 
 ``` purescript
-newExportTask' :: ({ taskId :: NullOrUndefined (ExportTaskId), taskName :: NullOrUndefined (ExportTaskName), logGroupName :: NullOrUndefined (LogGroupName), from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp), destination :: NullOrUndefined (ExportDestinationBucket), destinationPrefix :: NullOrUndefined (ExportDestinationPrefix), status :: NullOrUndefined (ExportTaskStatus), executionInfo :: NullOrUndefined (ExportTaskExecutionInfo) } -> { taskId :: NullOrUndefined (ExportTaskId), taskName :: NullOrUndefined (ExportTaskName), logGroupName :: NullOrUndefined (LogGroupName), from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp), destination :: NullOrUndefined (ExportDestinationBucket), destinationPrefix :: NullOrUndefined (ExportDestinationPrefix), status :: NullOrUndefined (ExportTaskStatus), executionInfo :: NullOrUndefined (ExportTaskExecutionInfo) }) -> ExportTask
+newExportTask' :: ({ taskId :: Maybe (ExportTaskId), taskName :: Maybe (ExportTaskName), logGroupName :: Maybe (LogGroupName), from :: Maybe (Timestamp), to :: Maybe (Timestamp), destination :: Maybe (ExportDestinationBucket), destinationPrefix :: Maybe (ExportDestinationPrefix), status :: Maybe (ExportTaskStatus), executionInfo :: Maybe (ExportTaskExecutionInfo) } -> { taskId :: Maybe (ExportTaskId), taskName :: Maybe (ExportTaskName), logGroupName :: Maybe (LogGroupName), from :: Maybe (Timestamp), to :: Maybe (Timestamp), destination :: Maybe (ExportDestinationBucket), destinationPrefix :: Maybe (ExportDestinationPrefix), status :: Maybe (ExportTaskStatus), executionInfo :: Maybe (ExportTaskExecutionInfo) }) -> ExportTask
 ```
 
 Constructs ExportTask's fields from required parameters
@@ -1268,7 +1268,7 @@ Constructs ExportTask's fields from required parameters
 
 ``` purescript
 newtype ExportTaskExecutionInfo
-  = ExportTaskExecutionInfo { creationTime :: NullOrUndefined (Timestamp), completionTime :: NullOrUndefined (Timestamp) }
+  = ExportTaskExecutionInfo { creationTime :: Maybe (Timestamp), completionTime :: Maybe (Timestamp) }
 ```
 
 <p>Represents the status of an export task.</p>
@@ -1293,7 +1293,7 @@ Constructs ExportTaskExecutionInfo from required parameters
 #### `newExportTaskExecutionInfo'`
 
 ``` purescript
-newExportTaskExecutionInfo' :: ({ creationTime :: NullOrUndefined (Timestamp), completionTime :: NullOrUndefined (Timestamp) } -> { creationTime :: NullOrUndefined (Timestamp), completionTime :: NullOrUndefined (Timestamp) }) -> ExportTaskExecutionInfo
+newExportTaskExecutionInfo' :: ({ creationTime :: Maybe (Timestamp), completionTime :: Maybe (Timestamp) } -> { creationTime :: Maybe (Timestamp), completionTime :: Maybe (Timestamp) }) -> ExportTaskExecutionInfo
 ```
 
 Constructs ExportTaskExecutionInfo's fields from required parameters
@@ -1334,7 +1334,7 @@ Encode ExportTaskName
 
 ``` purescript
 newtype ExportTaskStatus
-  = ExportTaskStatus { code :: NullOrUndefined (ExportTaskStatusCode), message :: NullOrUndefined (ExportTaskStatusMessage) }
+  = ExportTaskStatus { code :: Maybe (ExportTaskStatusCode), message :: Maybe (ExportTaskStatusMessage) }
 ```
 
 <p>Represents the status of an export task.</p>
@@ -1359,7 +1359,7 @@ Constructs ExportTaskStatus from required parameters
 #### `newExportTaskStatus'`
 
 ``` purescript
-newExportTaskStatus' :: ({ code :: NullOrUndefined (ExportTaskStatusCode), message :: NullOrUndefined (ExportTaskStatusMessage) } -> { code :: NullOrUndefined (ExportTaskStatusCode), message :: NullOrUndefined (ExportTaskStatusMessage) }) -> ExportTaskStatus
+newExportTaskStatus' :: ({ code :: Maybe (ExportTaskStatusCode), message :: Maybe (ExportTaskStatusMessage) } -> { code :: Maybe (ExportTaskStatusCode), message :: Maybe (ExportTaskStatusMessage) }) -> ExportTaskStatus
 ```
 
 Constructs ExportTaskStatus's fields from required parameters
@@ -1448,7 +1448,7 @@ Encode FilterCount
 
 ``` purescript
 newtype FilterLogEventsRequest
-  = FilterLogEventsRequest { logGroupName :: LogGroupName, logStreamNames :: NullOrUndefined (InputLogStreamNames), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), filterPattern :: NullOrUndefined (FilterPattern), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), interleaved :: NullOrUndefined (Interleaved) }
+  = FilterLogEventsRequest { logGroupName :: LogGroupName, logStreamNames :: Maybe (InputLogStreamNames), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), filterPattern :: Maybe (FilterPattern), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), interleaved :: Maybe (Interleaved) }
 ```
 
 ##### Instances
@@ -1471,7 +1471,7 @@ Constructs FilterLogEventsRequest from required parameters
 #### `newFilterLogEventsRequest'`
 
 ``` purescript
-newFilterLogEventsRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, logStreamNames :: NullOrUndefined (InputLogStreamNames), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), filterPattern :: NullOrUndefined (FilterPattern), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), interleaved :: NullOrUndefined (Interleaved) } -> { logGroupName :: LogGroupName, logStreamNames :: NullOrUndefined (InputLogStreamNames), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), filterPattern :: NullOrUndefined (FilterPattern), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), interleaved :: NullOrUndefined (Interleaved) }) -> FilterLogEventsRequest
+newFilterLogEventsRequest' :: LogGroupName -> ({ logGroupName :: LogGroupName, logStreamNames :: Maybe (InputLogStreamNames), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), filterPattern :: Maybe (FilterPattern), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), interleaved :: Maybe (Interleaved) } -> { logGroupName :: LogGroupName, logStreamNames :: Maybe (InputLogStreamNames), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), filterPattern :: Maybe (FilterPattern), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), interleaved :: Maybe (Interleaved) }) -> FilterLogEventsRequest
 ```
 
 Constructs FilterLogEventsRequest's fields from required parameters
@@ -1480,7 +1480,7 @@ Constructs FilterLogEventsRequest's fields from required parameters
 
 ``` purescript
 newtype FilterLogEventsResponse
-  = FilterLogEventsResponse { events :: NullOrUndefined (FilteredLogEvents), searchedLogStreams :: NullOrUndefined (SearchedLogStreams), nextToken :: NullOrUndefined (NextToken) }
+  = FilterLogEventsResponse { events :: Maybe (FilteredLogEvents), searchedLogStreams :: Maybe (SearchedLogStreams), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1503,7 +1503,7 @@ Constructs FilterLogEventsResponse from required parameters
 #### `newFilterLogEventsResponse'`
 
 ``` purescript
-newFilterLogEventsResponse' :: ({ events :: NullOrUndefined (FilteredLogEvents), searchedLogStreams :: NullOrUndefined (SearchedLogStreams), nextToken :: NullOrUndefined (NextToken) } -> { events :: NullOrUndefined (FilteredLogEvents), searchedLogStreams :: NullOrUndefined (SearchedLogStreams), nextToken :: NullOrUndefined (NextToken) }) -> FilterLogEventsResponse
+newFilterLogEventsResponse' :: ({ events :: Maybe (FilteredLogEvents), searchedLogStreams :: Maybe (SearchedLogStreams), nextToken :: Maybe (NextToken) } -> { events :: Maybe (FilteredLogEvents), searchedLogStreams :: Maybe (SearchedLogStreams), nextToken :: Maybe (NextToken) }) -> FilterLogEventsResponse
 ```
 
 Constructs FilterLogEventsResponse's fields from required parameters
@@ -1546,7 +1546,7 @@ Encode FilterPattern
 
 ``` purescript
 newtype FilteredLogEvent
-  = FilteredLogEvent { logStreamName :: NullOrUndefined (LogStreamName), timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp), eventId :: NullOrUndefined (EventId) }
+  = FilteredLogEvent { logStreamName :: Maybe (LogStreamName), timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp), eventId :: Maybe (EventId) }
 ```
 
 <p>Represents a matched event.</p>
@@ -1571,7 +1571,7 @@ Constructs FilteredLogEvent from required parameters
 #### `newFilteredLogEvent'`
 
 ``` purescript
-newFilteredLogEvent' :: ({ logStreamName :: NullOrUndefined (LogStreamName), timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp), eventId :: NullOrUndefined (EventId) } -> { logStreamName :: NullOrUndefined (LogStreamName), timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp), eventId :: NullOrUndefined (EventId) }) -> FilteredLogEvent
+newFilteredLogEvent' :: ({ logStreamName :: Maybe (LogStreamName), timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp), eventId :: Maybe (EventId) } -> { logStreamName :: Maybe (LogStreamName), timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp), eventId :: Maybe (EventId) }) -> FilteredLogEvent
 ```
 
 Constructs FilteredLogEvent's fields from required parameters
@@ -1596,7 +1596,7 @@ Encode FilteredLogEvents
 
 ``` purescript
 newtype GetLogEventsRequest
-  = GetLogEventsRequest { logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), startFromHead :: NullOrUndefined (StartFromHead) }
+  = GetLogEventsRequest { logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), startFromHead :: Maybe (StartFromHead) }
 ```
 
 ##### Instances
@@ -1619,7 +1619,7 @@ Constructs GetLogEventsRequest from required parameters
 #### `newGetLogEventsRequest'`
 
 ``` purescript
-newGetLogEventsRequest' :: LogGroupName -> LogStreamName -> ({ logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), startFromHead :: NullOrUndefined (StartFromHead) } -> { logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), nextToken :: NullOrUndefined (NextToken), limit :: NullOrUndefined (EventsLimit), startFromHead :: NullOrUndefined (StartFromHead) }) -> GetLogEventsRequest
+newGetLogEventsRequest' :: LogGroupName -> LogStreamName -> ({ logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), startFromHead :: Maybe (StartFromHead) } -> { logGroupName :: LogGroupName, logStreamName :: LogStreamName, startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), nextToken :: Maybe (NextToken), limit :: Maybe (EventsLimit), startFromHead :: Maybe (StartFromHead) }) -> GetLogEventsRequest
 ```
 
 Constructs GetLogEventsRequest's fields from required parameters
@@ -1628,7 +1628,7 @@ Constructs GetLogEventsRequest's fields from required parameters
 
 ``` purescript
 newtype GetLogEventsResponse
-  = GetLogEventsResponse { events :: NullOrUndefined (OutputLogEvents), nextForwardToken :: NullOrUndefined (NextToken), nextBackwardToken :: NullOrUndefined (NextToken) }
+  = GetLogEventsResponse { events :: Maybe (OutputLogEvents), nextForwardToken :: Maybe (NextToken), nextBackwardToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1651,7 +1651,7 @@ Constructs GetLogEventsResponse from required parameters
 #### `newGetLogEventsResponse'`
 
 ``` purescript
-newGetLogEventsResponse' :: ({ events :: NullOrUndefined (OutputLogEvents), nextForwardToken :: NullOrUndefined (NextToken), nextBackwardToken :: NullOrUndefined (NextToken) } -> { events :: NullOrUndefined (OutputLogEvents), nextForwardToken :: NullOrUndefined (NextToken), nextBackwardToken :: NullOrUndefined (NextToken) }) -> GetLogEventsResponse
+newGetLogEventsResponse' :: ({ events :: Maybe (OutputLogEvents), nextForwardToken :: Maybe (NextToken), nextBackwardToken :: Maybe (NextToken) } -> { events :: Maybe (OutputLogEvents), nextForwardToken :: Maybe (NextToken), nextBackwardToken :: Maybe (NextToken) }) -> GetLogEventsResponse
 ```
 
 Constructs GetLogEventsResponse's fields from required parameters
@@ -1778,7 +1778,7 @@ Encode InvalidParameterException
 
 ``` purescript
 newtype InvalidSequenceTokenException
-  = InvalidSequenceTokenException { expectedSequenceToken :: NullOrUndefined (SequenceToken) }
+  = InvalidSequenceTokenException { expectedSequenceToken :: Maybe (SequenceToken) }
 ```
 
 <p>The sequence token is not valid.</p>
@@ -1803,7 +1803,7 @@ Constructs InvalidSequenceTokenException from required parameters
 #### `newInvalidSequenceTokenException'`
 
 ``` purescript
-newInvalidSequenceTokenException' :: ({ expectedSequenceToken :: NullOrUndefined (SequenceToken) } -> { expectedSequenceToken :: NullOrUndefined (SequenceToken) }) -> InvalidSequenceTokenException
+newInvalidSequenceTokenException' :: ({ expectedSequenceToken :: Maybe (SequenceToken) } -> { expectedSequenceToken :: Maybe (SequenceToken) }) -> InvalidSequenceTokenException
 ```
 
 Constructs InvalidSequenceTokenException's fields from required parameters
@@ -1878,7 +1878,7 @@ Constructs ListTagsLogGroupRequest's fields from required parameters
 
 ``` purescript
 newtype ListTagsLogGroupResponse
-  = ListTagsLogGroupResponse { tags :: NullOrUndefined (Tags) }
+  = ListTagsLogGroupResponse { tags :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -1901,7 +1901,7 @@ Constructs ListTagsLogGroupResponse from required parameters
 #### `newListTagsLogGroupResponse'`
 
 ``` purescript
-newListTagsLogGroupResponse' :: ({ tags :: NullOrUndefined (Tags) } -> { tags :: NullOrUndefined (Tags) }) -> ListTagsLogGroupResponse
+newListTagsLogGroupResponse' :: ({ tags :: Maybe (Tags) } -> { tags :: Maybe (Tags) }) -> ListTagsLogGroupResponse
 ```
 
 Constructs ListTagsLogGroupResponse's fields from required parameters
@@ -1926,7 +1926,7 @@ Encode LogEventIndex
 
 ``` purescript
 newtype LogGroup
-  = LogGroup { logGroupName :: NullOrUndefined (LogGroupName), creationTime :: NullOrUndefined (Timestamp), retentionInDays :: NullOrUndefined (Days), metricFilterCount :: NullOrUndefined (FilterCount), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes), kmsKeyId :: NullOrUndefined (KmsKeyId) }
+  = LogGroup { logGroupName :: Maybe (LogGroupName), creationTime :: Maybe (Timestamp), retentionInDays :: Maybe (Days), metricFilterCount :: Maybe (FilterCount), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes), kmsKeyId :: Maybe (KmsKeyId) }
 ```
 
 <p>Represents a log group.</p>
@@ -1951,7 +1951,7 @@ Constructs LogGroup from required parameters
 #### `newLogGroup'`
 
 ``` purescript
-newLogGroup' :: ({ logGroupName :: NullOrUndefined (LogGroupName), creationTime :: NullOrUndefined (Timestamp), retentionInDays :: NullOrUndefined (Days), metricFilterCount :: NullOrUndefined (FilterCount), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes), kmsKeyId :: NullOrUndefined (KmsKeyId) } -> { logGroupName :: NullOrUndefined (LogGroupName), creationTime :: NullOrUndefined (Timestamp), retentionInDays :: NullOrUndefined (Days), metricFilterCount :: NullOrUndefined (FilterCount), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes), kmsKeyId :: NullOrUndefined (KmsKeyId) }) -> LogGroup
+newLogGroup' :: ({ logGroupName :: Maybe (LogGroupName), creationTime :: Maybe (Timestamp), retentionInDays :: Maybe (Days), metricFilterCount :: Maybe (FilterCount), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes), kmsKeyId :: Maybe (KmsKeyId) } -> { logGroupName :: Maybe (LogGroupName), creationTime :: Maybe (Timestamp), retentionInDays :: Maybe (Days), metricFilterCount :: Maybe (FilterCount), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes), kmsKeyId :: Maybe (KmsKeyId) }) -> LogGroup
 ```
 
 Constructs LogGroup's fields from required parameters
@@ -1992,7 +1992,7 @@ Encode LogGroups
 
 ``` purescript
 newtype LogStream
-  = LogStream { logStreamName :: NullOrUndefined (LogStreamName), creationTime :: NullOrUndefined (Timestamp), firstEventTimestamp :: NullOrUndefined (Timestamp), lastEventTimestamp :: NullOrUndefined (Timestamp), lastIngestionTime :: NullOrUndefined (Timestamp), uploadSequenceToken :: NullOrUndefined (SequenceToken), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes) }
+  = LogStream { logStreamName :: Maybe (LogStreamName), creationTime :: Maybe (Timestamp), firstEventTimestamp :: Maybe (Timestamp), lastEventTimestamp :: Maybe (Timestamp), lastIngestionTime :: Maybe (Timestamp), uploadSequenceToken :: Maybe (SequenceToken), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes) }
 ```
 
 <p>Represents a log stream, which is a sequence of log events from a single emitter of logs.</p>
@@ -2017,7 +2017,7 @@ Constructs LogStream from required parameters
 #### `newLogStream'`
 
 ``` purescript
-newLogStream' :: ({ logStreamName :: NullOrUndefined (LogStreamName), creationTime :: NullOrUndefined (Timestamp), firstEventTimestamp :: NullOrUndefined (Timestamp), lastEventTimestamp :: NullOrUndefined (Timestamp), lastIngestionTime :: NullOrUndefined (Timestamp), uploadSequenceToken :: NullOrUndefined (SequenceToken), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes) } -> { logStreamName :: NullOrUndefined (LogStreamName), creationTime :: NullOrUndefined (Timestamp), firstEventTimestamp :: NullOrUndefined (Timestamp), lastEventTimestamp :: NullOrUndefined (Timestamp), lastIngestionTime :: NullOrUndefined (Timestamp), uploadSequenceToken :: NullOrUndefined (SequenceToken), arn :: NullOrUndefined (Arn), storedBytes :: NullOrUndefined (StoredBytes) }) -> LogStream
+newLogStream' :: ({ logStreamName :: Maybe (LogStreamName), creationTime :: Maybe (Timestamp), firstEventTimestamp :: Maybe (Timestamp), lastEventTimestamp :: Maybe (Timestamp), lastIngestionTime :: Maybe (Timestamp), uploadSequenceToken :: Maybe (SequenceToken), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes) } -> { logStreamName :: Maybe (LogStreamName), creationTime :: Maybe (Timestamp), firstEventTimestamp :: Maybe (Timestamp), lastEventTimestamp :: Maybe (Timestamp), lastIngestionTime :: Maybe (Timestamp), uploadSequenceToken :: Maybe (SequenceToken), arn :: Maybe (Arn), storedBytes :: Maybe (StoredBytes) }) -> LogStream
 ```
 
 Constructs LogStream's fields from required parameters
@@ -2074,7 +2074,7 @@ Encode LogStreams
 
 ``` purescript
 newtype MetricFilter
-  = MetricFilter { filterName :: NullOrUndefined (FilterName), filterPattern :: NullOrUndefined (FilterPattern), metricTransformations :: NullOrUndefined (MetricTransformations), creationTime :: NullOrUndefined (Timestamp), logGroupName :: NullOrUndefined (LogGroupName) }
+  = MetricFilter { filterName :: Maybe (FilterName), filterPattern :: Maybe (FilterPattern), metricTransformations :: Maybe (MetricTransformations), creationTime :: Maybe (Timestamp), logGroupName :: Maybe (LogGroupName) }
 ```
 
 <p>Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.</p>
@@ -2099,7 +2099,7 @@ Constructs MetricFilter from required parameters
 #### `newMetricFilter'`
 
 ``` purescript
-newMetricFilter' :: ({ filterName :: NullOrUndefined (FilterName), filterPattern :: NullOrUndefined (FilterPattern), metricTransformations :: NullOrUndefined (MetricTransformations), creationTime :: NullOrUndefined (Timestamp), logGroupName :: NullOrUndefined (LogGroupName) } -> { filterName :: NullOrUndefined (FilterName), filterPattern :: NullOrUndefined (FilterPattern), metricTransformations :: NullOrUndefined (MetricTransformations), creationTime :: NullOrUndefined (Timestamp), logGroupName :: NullOrUndefined (LogGroupName) }) -> MetricFilter
+newMetricFilter' :: ({ filterName :: Maybe (FilterName), filterPattern :: Maybe (FilterPattern), metricTransformations :: Maybe (MetricTransformations), creationTime :: Maybe (Timestamp), logGroupName :: Maybe (LogGroupName) } -> { filterName :: Maybe (FilterName), filterPattern :: Maybe (FilterPattern), metricTransformations :: Maybe (MetricTransformations), creationTime :: Maybe (Timestamp), logGroupName :: Maybe (LogGroupName) }) -> MetricFilter
 ```
 
 Constructs MetricFilter's fields from required parameters
@@ -2108,7 +2108,7 @@ Constructs MetricFilter's fields from required parameters
 
 ``` purescript
 newtype MetricFilterMatchRecord
-  = MetricFilterMatchRecord { eventNumber :: NullOrUndefined (EventNumber), eventMessage :: NullOrUndefined (EventMessage), extractedValues :: NullOrUndefined (ExtractedValues) }
+  = MetricFilterMatchRecord { eventNumber :: Maybe (EventNumber), eventMessage :: Maybe (EventMessage), extractedValues :: Maybe (ExtractedValues) }
 ```
 
 <p>Represents a matched event.</p>
@@ -2133,7 +2133,7 @@ Constructs MetricFilterMatchRecord from required parameters
 #### `newMetricFilterMatchRecord'`
 
 ``` purescript
-newMetricFilterMatchRecord' :: ({ eventNumber :: NullOrUndefined (EventNumber), eventMessage :: NullOrUndefined (EventMessage), extractedValues :: NullOrUndefined (ExtractedValues) } -> { eventNumber :: NullOrUndefined (EventNumber), eventMessage :: NullOrUndefined (EventMessage), extractedValues :: NullOrUndefined (ExtractedValues) }) -> MetricFilterMatchRecord
+newMetricFilterMatchRecord' :: ({ eventNumber :: Maybe (EventNumber), eventMessage :: Maybe (EventMessage), extractedValues :: Maybe (ExtractedValues) } -> { eventNumber :: Maybe (EventNumber), eventMessage :: Maybe (EventMessage), extractedValues :: Maybe (ExtractedValues) }) -> MetricFilterMatchRecord
 ```
 
 Constructs MetricFilterMatchRecord's fields from required parameters
@@ -2208,7 +2208,7 @@ Encode MetricNamespace
 
 ``` purescript
 newtype MetricTransformation
-  = MetricTransformation { metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: NullOrUndefined (DefaultValue) }
+  = MetricTransformation { metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: Maybe (DefaultValue) }
 ```
 
 <p>Indicates how to transform ingested log events in to metric data in a CloudWatch metric.</p>
@@ -2233,7 +2233,7 @@ Constructs MetricTransformation from required parameters
 #### `newMetricTransformation'`
 
 ``` purescript
-newMetricTransformation' :: MetricName -> MetricNamespace -> MetricValue -> ({ metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: NullOrUndefined (DefaultValue) } -> { metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: NullOrUndefined (DefaultValue) }) -> MetricTransformation
+newMetricTransformation' :: MetricName -> MetricNamespace -> MetricValue -> ({ metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: Maybe (DefaultValue) } -> { metricName :: MetricName, metricNamespace :: MetricNamespace, metricValue :: MetricValue, defaultValue :: Maybe (DefaultValue) }) -> MetricTransformation
 ```
 
 Constructs MetricTransformation's fields from required parameters
@@ -2328,7 +2328,7 @@ Encode OrderBy
 
 ``` purescript
 newtype OutputLogEvent
-  = OutputLogEvent { timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp) }
+  = OutputLogEvent { timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp) }
 ```
 
 <p>Represents a log event.</p>
@@ -2353,7 +2353,7 @@ Constructs OutputLogEvent from required parameters
 #### `newOutputLogEvent'`
 
 ``` purescript
-newOutputLogEvent' :: ({ timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp) } -> { timestamp :: NullOrUndefined (Timestamp), message :: NullOrUndefined (EventMessage), ingestionTime :: NullOrUndefined (Timestamp) }) -> OutputLogEvent
+newOutputLogEvent' :: ({ timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp) } -> { timestamp :: Maybe (Timestamp), message :: Maybe (EventMessage), ingestionTime :: Maybe (Timestamp) }) -> OutputLogEvent
 ```
 
 Constructs OutputLogEvent's fields from required parameters
@@ -2474,7 +2474,7 @@ Constructs PutDestinationRequest's fields from required parameters
 
 ``` purescript
 newtype PutDestinationResponse
-  = PutDestinationResponse { destination :: NullOrUndefined (Destination) }
+  = PutDestinationResponse { destination :: Maybe (Destination) }
 ```
 
 ##### Instances
@@ -2497,7 +2497,7 @@ Constructs PutDestinationResponse from required parameters
 #### `newPutDestinationResponse'`
 
 ``` purescript
-newPutDestinationResponse' :: ({ destination :: NullOrUndefined (Destination) } -> { destination :: NullOrUndefined (Destination) }) -> PutDestinationResponse
+newPutDestinationResponse' :: ({ destination :: Maybe (Destination) } -> { destination :: Maybe (Destination) }) -> PutDestinationResponse
 ```
 
 Constructs PutDestinationResponse's fields from required parameters
@@ -2506,7 +2506,7 @@ Constructs PutDestinationResponse's fields from required parameters
 
 ``` purescript
 newtype PutLogEventsRequest
-  = PutLogEventsRequest { logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: NullOrUndefined (SequenceToken) }
+  = PutLogEventsRequest { logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: Maybe (SequenceToken) }
 ```
 
 ##### Instances
@@ -2529,7 +2529,7 @@ Constructs PutLogEventsRequest from required parameters
 #### `newPutLogEventsRequest'`
 
 ``` purescript
-newPutLogEventsRequest' :: InputLogEvents -> LogGroupName -> LogStreamName -> ({ logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: NullOrUndefined (SequenceToken) } -> { logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: NullOrUndefined (SequenceToken) }) -> PutLogEventsRequest
+newPutLogEventsRequest' :: InputLogEvents -> LogGroupName -> LogStreamName -> ({ logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: Maybe (SequenceToken) } -> { logGroupName :: LogGroupName, logStreamName :: LogStreamName, logEvents :: InputLogEvents, sequenceToken :: Maybe (SequenceToken) }) -> PutLogEventsRequest
 ```
 
 Constructs PutLogEventsRequest's fields from required parameters
@@ -2538,7 +2538,7 @@ Constructs PutLogEventsRequest's fields from required parameters
 
 ``` purescript
 newtype PutLogEventsResponse
-  = PutLogEventsResponse { nextSequenceToken :: NullOrUndefined (SequenceToken), rejectedLogEventsInfo :: NullOrUndefined (RejectedLogEventsInfo) }
+  = PutLogEventsResponse { nextSequenceToken :: Maybe (SequenceToken), rejectedLogEventsInfo :: Maybe (RejectedLogEventsInfo) }
 ```
 
 ##### Instances
@@ -2561,7 +2561,7 @@ Constructs PutLogEventsResponse from required parameters
 #### `newPutLogEventsResponse'`
 
 ``` purescript
-newPutLogEventsResponse' :: ({ nextSequenceToken :: NullOrUndefined (SequenceToken), rejectedLogEventsInfo :: NullOrUndefined (RejectedLogEventsInfo) } -> { nextSequenceToken :: NullOrUndefined (SequenceToken), rejectedLogEventsInfo :: NullOrUndefined (RejectedLogEventsInfo) }) -> PutLogEventsResponse
+newPutLogEventsResponse' :: ({ nextSequenceToken :: Maybe (SequenceToken), rejectedLogEventsInfo :: Maybe (RejectedLogEventsInfo) } -> { nextSequenceToken :: Maybe (SequenceToken), rejectedLogEventsInfo :: Maybe (RejectedLogEventsInfo) }) -> PutLogEventsResponse
 ```
 
 Constructs PutLogEventsResponse's fields from required parameters
@@ -2602,7 +2602,7 @@ Constructs PutMetricFilterRequest's fields from required parameters
 
 ``` purescript
 newtype PutResourcePolicyRequest
-  = PutResourcePolicyRequest { policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument) }
+  = PutResourcePolicyRequest { policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument) }
 ```
 
 ##### Instances
@@ -2625,7 +2625,7 @@ Constructs PutResourcePolicyRequest from required parameters
 #### `newPutResourcePolicyRequest'`
 
 ``` purescript
-newPutResourcePolicyRequest' :: ({ policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument) } -> { policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument) }) -> PutResourcePolicyRequest
+newPutResourcePolicyRequest' :: ({ policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument) } -> { policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument) }) -> PutResourcePolicyRequest
 ```
 
 Constructs PutResourcePolicyRequest's fields from required parameters
@@ -2634,7 +2634,7 @@ Constructs PutResourcePolicyRequest's fields from required parameters
 
 ``` purescript
 newtype PutResourcePolicyResponse
-  = PutResourcePolicyResponse { resourcePolicy :: NullOrUndefined (ResourcePolicy) }
+  = PutResourcePolicyResponse { resourcePolicy :: Maybe (ResourcePolicy) }
 ```
 
 ##### Instances
@@ -2657,7 +2657,7 @@ Constructs PutResourcePolicyResponse from required parameters
 #### `newPutResourcePolicyResponse'`
 
 ``` purescript
-newPutResourcePolicyResponse' :: ({ resourcePolicy :: NullOrUndefined (ResourcePolicy) } -> { resourcePolicy :: NullOrUndefined (ResourcePolicy) }) -> PutResourcePolicyResponse
+newPutResourcePolicyResponse' :: ({ resourcePolicy :: Maybe (ResourcePolicy) } -> { resourcePolicy :: Maybe (ResourcePolicy) }) -> PutResourcePolicyResponse
 ```
 
 Constructs PutResourcePolicyResponse's fields from required parameters
@@ -2698,7 +2698,7 @@ Constructs PutRetentionPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype PutSubscriptionFilterRequest
-  = PutSubscriptionFilterRequest { logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution) }
+  = PutSubscriptionFilterRequest { logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution) }
 ```
 
 ##### Instances
@@ -2721,7 +2721,7 @@ Constructs PutSubscriptionFilterRequest from required parameters
 #### `newPutSubscriptionFilterRequest'`
 
 ``` purescript
-newPutSubscriptionFilterRequest' :: DestinationArn -> FilterName -> FilterPattern -> LogGroupName -> ({ logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution) } -> { logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution) }) -> PutSubscriptionFilterRequest
+newPutSubscriptionFilterRequest' :: DestinationArn -> FilterName -> FilterPattern -> LogGroupName -> ({ logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution) } -> { logGroupName :: LogGroupName, filterName :: FilterName, filterPattern :: FilterPattern, destinationArn :: DestinationArn, roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution) }) -> PutSubscriptionFilterRequest
 ```
 
 Constructs PutSubscriptionFilterRequest's fields from required parameters
@@ -2730,7 +2730,7 @@ Constructs PutSubscriptionFilterRequest's fields from required parameters
 
 ``` purescript
 newtype RejectedLogEventsInfo
-  = RejectedLogEventsInfo { tooNewLogEventStartIndex :: NullOrUndefined (LogEventIndex), tooOldLogEventEndIndex :: NullOrUndefined (LogEventIndex), expiredLogEventEndIndex :: NullOrUndefined (LogEventIndex) }
+  = RejectedLogEventsInfo { tooNewLogEventStartIndex :: Maybe (LogEventIndex), tooOldLogEventEndIndex :: Maybe (LogEventIndex), expiredLogEventEndIndex :: Maybe (LogEventIndex) }
 ```
 
 <p>Represents the rejected events.</p>
@@ -2755,7 +2755,7 @@ Constructs RejectedLogEventsInfo from required parameters
 #### `newRejectedLogEventsInfo'`
 
 ``` purescript
-newRejectedLogEventsInfo' :: ({ tooNewLogEventStartIndex :: NullOrUndefined (LogEventIndex), tooOldLogEventEndIndex :: NullOrUndefined (LogEventIndex), expiredLogEventEndIndex :: NullOrUndefined (LogEventIndex) } -> { tooNewLogEventStartIndex :: NullOrUndefined (LogEventIndex), tooOldLogEventEndIndex :: NullOrUndefined (LogEventIndex), expiredLogEventEndIndex :: NullOrUndefined (LogEventIndex) }) -> RejectedLogEventsInfo
+newRejectedLogEventsInfo' :: ({ tooNewLogEventStartIndex :: Maybe (LogEventIndex), tooOldLogEventEndIndex :: Maybe (LogEventIndex), expiredLogEventEndIndex :: Maybe (LogEventIndex) } -> { tooNewLogEventStartIndex :: Maybe (LogEventIndex), tooOldLogEventEndIndex :: Maybe (LogEventIndex), expiredLogEventEndIndex :: Maybe (LogEventIndex) }) -> RejectedLogEventsInfo
 ```
 
 Constructs RejectedLogEventsInfo's fields from required parameters
@@ -2816,7 +2816,7 @@ Encode ResourcePolicies
 
 ``` purescript
 newtype ResourcePolicy
-  = ResourcePolicy { policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument), lastUpdatedTime :: NullOrUndefined (Timestamp) }
+  = ResourcePolicy { policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument), lastUpdatedTime :: Maybe (Timestamp) }
 ```
 
 <p>A policy enabling one or more entities to put logs to a log group in this account.</p>
@@ -2841,7 +2841,7 @@ Constructs ResourcePolicy from required parameters
 #### `newResourcePolicy'`
 
 ``` purescript
-newResourcePolicy' :: ({ policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument), lastUpdatedTime :: NullOrUndefined (Timestamp) } -> { policyName :: NullOrUndefined (PolicyName), policyDocument :: NullOrUndefined (PolicyDocument), lastUpdatedTime :: NullOrUndefined (Timestamp) }) -> ResourcePolicy
+newResourcePolicy' :: ({ policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument), lastUpdatedTime :: Maybe (Timestamp) } -> { policyName :: Maybe (PolicyName), policyDocument :: Maybe (PolicyDocument), lastUpdatedTime :: Maybe (Timestamp) }) -> ResourcePolicy
 ```
 
 Constructs ResourcePolicy's fields from required parameters
@@ -2866,7 +2866,7 @@ Encode RoleArn
 
 ``` purescript
 newtype SearchedLogStream
-  = SearchedLogStream { logStreamName :: NullOrUndefined (LogStreamName), searchedCompletely :: NullOrUndefined (LogStreamSearchedCompletely) }
+  = SearchedLogStream { logStreamName :: Maybe (LogStreamName), searchedCompletely :: Maybe (LogStreamSearchedCompletely) }
 ```
 
 <p>Represents the search status of a log stream.</p>
@@ -2891,7 +2891,7 @@ Constructs SearchedLogStream from required parameters
 #### `newSearchedLogStream'`
 
 ``` purescript
-newSearchedLogStream' :: ({ logStreamName :: NullOrUndefined (LogStreamName), searchedCompletely :: NullOrUndefined (LogStreamSearchedCompletely) } -> { logStreamName :: NullOrUndefined (LogStreamName), searchedCompletely :: NullOrUndefined (LogStreamSearchedCompletely) }) -> SearchedLogStream
+newSearchedLogStream' :: ({ logStreamName :: Maybe (LogStreamName), searchedCompletely :: Maybe (LogStreamSearchedCompletely) } -> { logStreamName :: Maybe (LogStreamName), searchedCompletely :: Maybe (LogStreamSearchedCompletely) }) -> SearchedLogStream
 ```
 
 Constructs SearchedLogStream's fields from required parameters
@@ -2982,7 +2982,7 @@ Encode StoredBytes
 
 ``` purescript
 newtype SubscriptionFilter
-  = SubscriptionFilter { filterName :: NullOrUndefined (FilterName), logGroupName :: NullOrUndefined (LogGroupName), filterPattern :: NullOrUndefined (FilterPattern), destinationArn :: NullOrUndefined (DestinationArn), roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution), creationTime :: NullOrUndefined (Timestamp) }
+  = SubscriptionFilter { filterName :: Maybe (FilterName), logGroupName :: Maybe (LogGroupName), filterPattern :: Maybe (FilterPattern), destinationArn :: Maybe (DestinationArn), roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution), creationTime :: Maybe (Timestamp) }
 ```
 
 <p>Represents a subscription filter.</p>
@@ -3007,7 +3007,7 @@ Constructs SubscriptionFilter from required parameters
 #### `newSubscriptionFilter'`
 
 ``` purescript
-newSubscriptionFilter' :: ({ filterName :: NullOrUndefined (FilterName), logGroupName :: NullOrUndefined (LogGroupName), filterPattern :: NullOrUndefined (FilterPattern), destinationArn :: NullOrUndefined (DestinationArn), roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution), creationTime :: NullOrUndefined (Timestamp) } -> { filterName :: NullOrUndefined (FilterName), logGroupName :: NullOrUndefined (LogGroupName), filterPattern :: NullOrUndefined (FilterPattern), destinationArn :: NullOrUndefined (DestinationArn), roleArn :: NullOrUndefined (RoleArn), distribution :: NullOrUndefined (Distribution), creationTime :: NullOrUndefined (Timestamp) }) -> SubscriptionFilter
+newSubscriptionFilter' :: ({ filterName :: Maybe (FilterName), logGroupName :: Maybe (LogGroupName), filterPattern :: Maybe (FilterPattern), destinationArn :: Maybe (DestinationArn), roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution), creationTime :: Maybe (Timestamp) } -> { filterName :: Maybe (FilterName), logGroupName :: Maybe (LogGroupName), filterPattern :: Maybe (FilterPattern), destinationArn :: Maybe (DestinationArn), roleArn :: Maybe (RoleArn), distribution :: Maybe (Distribution), creationTime :: Maybe (Timestamp) }) -> SubscriptionFilter
 ```
 
 Constructs SubscriptionFilter's fields from required parameters
@@ -3192,7 +3192,7 @@ Constructs TestMetricFilterRequest's fields from required parameters
 
 ``` purescript
 newtype TestMetricFilterResponse
-  = TestMetricFilterResponse { matches :: NullOrUndefined (MetricFilterMatches) }
+  = TestMetricFilterResponse { matches :: Maybe (MetricFilterMatches) }
 ```
 
 ##### Instances
@@ -3215,7 +3215,7 @@ Constructs TestMetricFilterResponse from required parameters
 #### `newTestMetricFilterResponse'`
 
 ``` purescript
-newTestMetricFilterResponse' :: ({ matches :: NullOrUndefined (MetricFilterMatches) } -> { matches :: NullOrUndefined (MetricFilterMatches) }) -> TestMetricFilterResponse
+newTestMetricFilterResponse' :: ({ matches :: Maybe (MetricFilterMatches) } -> { matches :: Maybe (MetricFilterMatches) }) -> TestMetricFilterResponse
 ```
 
 Constructs TestMetricFilterResponse's fields from required parameters

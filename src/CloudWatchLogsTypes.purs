@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -78,13 +77,13 @@ newCancelExportTaskRequest' _taskId customize = (CancelExportTaskRequest <<< cus
 
 
 newtype CreateExportTaskRequest = CreateExportTaskRequest 
-  { "taskName" :: NullOrUndefined (ExportTaskName)
+  { "taskName" :: Maybe (ExportTaskName)
   , "logGroupName" :: (LogGroupName)
-  , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName)
+  , "logStreamNamePrefix" :: Maybe (LogStreamName)
   , "from" :: (Types.Timestamp)
   , "to" :: (Types.Timestamp)
   , "destination" :: (ExportDestinationBucket)
-  , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix)
+  , "destinationPrefix" :: Maybe (ExportDestinationPrefix)
   }
 derive instance newtypeCreateExportTaskRequest :: Newtype CreateExportTaskRequest _
 derive instance repGenericCreateExportTaskRequest :: Generic CreateExportTaskRequest _
@@ -94,17 +93,17 @@ instance encodeCreateExportTaskRequest :: Encode CreateExportTaskRequest where e
 
 -- | Constructs CreateExportTaskRequest from required parameters
 newCreateExportTaskRequest :: ExportDestinationBucket -> Types.Timestamp -> LogGroupName -> Types.Timestamp -> CreateExportTaskRequest
-newCreateExportTaskRequest _destination _from _logGroupName _to = CreateExportTaskRequest { "destination": _destination, "from": _from, "logGroupName": _logGroupName, "to": _to, "destinationPrefix": (NullOrUndefined Nothing), "logStreamNamePrefix": (NullOrUndefined Nothing), "taskName": (NullOrUndefined Nothing) }
+newCreateExportTaskRequest _destination _from _logGroupName _to = CreateExportTaskRequest { "destination": _destination, "from": _from, "logGroupName": _logGroupName, "to": _to, "destinationPrefix": Nothing, "logStreamNamePrefix": Nothing, "taskName": Nothing }
 
 -- | Constructs CreateExportTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateExportTaskRequest' :: ExportDestinationBucket -> Types.Timestamp -> LogGroupName -> Types.Timestamp -> ( { "taskName" :: NullOrUndefined (ExportTaskName) , "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName) , "from" :: (Types.Timestamp) , "to" :: (Types.Timestamp) , "destination" :: (ExportDestinationBucket) , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix) } -> {"taskName" :: NullOrUndefined (ExportTaskName) , "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName) , "from" :: (Types.Timestamp) , "to" :: (Types.Timestamp) , "destination" :: (ExportDestinationBucket) , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix) } ) -> CreateExportTaskRequest
-newCreateExportTaskRequest' _destination _from _logGroupName _to customize = (CreateExportTaskRequest <<< customize) { "destination": _destination, "from": _from, "logGroupName": _logGroupName, "to": _to, "destinationPrefix": (NullOrUndefined Nothing), "logStreamNamePrefix": (NullOrUndefined Nothing), "taskName": (NullOrUndefined Nothing) }
+newCreateExportTaskRequest' :: ExportDestinationBucket -> Types.Timestamp -> LogGroupName -> Types.Timestamp -> ( { "taskName" :: Maybe (ExportTaskName) , "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: Maybe (LogStreamName) , "from" :: (Types.Timestamp) , "to" :: (Types.Timestamp) , "destination" :: (ExportDestinationBucket) , "destinationPrefix" :: Maybe (ExportDestinationPrefix) } -> {"taskName" :: Maybe (ExportTaskName) , "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: Maybe (LogStreamName) , "from" :: (Types.Timestamp) , "to" :: (Types.Timestamp) , "destination" :: (ExportDestinationBucket) , "destinationPrefix" :: Maybe (ExportDestinationPrefix) } ) -> CreateExportTaskRequest
+newCreateExportTaskRequest' _destination _from _logGroupName _to customize = (CreateExportTaskRequest <<< customize) { "destination": _destination, "from": _from, "logGroupName": _logGroupName, "to": _to, "destinationPrefix": Nothing, "logStreamNamePrefix": Nothing, "taskName": Nothing }
 
 
 
 newtype CreateExportTaskResponse = CreateExportTaskResponse 
-  { "taskId" :: NullOrUndefined (ExportTaskId)
+  { "taskId" :: Maybe (ExportTaskId)
   }
 derive instance newtypeCreateExportTaskResponse :: Newtype CreateExportTaskResponse _
 derive instance repGenericCreateExportTaskResponse :: Generic CreateExportTaskResponse _
@@ -114,19 +113,19 @@ instance encodeCreateExportTaskResponse :: Encode CreateExportTaskResponse where
 
 -- | Constructs CreateExportTaskResponse from required parameters
 newCreateExportTaskResponse :: CreateExportTaskResponse
-newCreateExportTaskResponse  = CreateExportTaskResponse { "taskId": (NullOrUndefined Nothing) }
+newCreateExportTaskResponse  = CreateExportTaskResponse { "taskId": Nothing }
 
 -- | Constructs CreateExportTaskResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateExportTaskResponse' :: ( { "taskId" :: NullOrUndefined (ExportTaskId) } -> {"taskId" :: NullOrUndefined (ExportTaskId) } ) -> CreateExportTaskResponse
-newCreateExportTaskResponse'  customize = (CreateExportTaskResponse <<< customize) { "taskId": (NullOrUndefined Nothing) }
+newCreateExportTaskResponse' :: ( { "taskId" :: Maybe (ExportTaskId) } -> {"taskId" :: Maybe (ExportTaskId) } ) -> CreateExportTaskResponse
+newCreateExportTaskResponse'  customize = (CreateExportTaskResponse <<< customize) { "taskId": Nothing }
 
 
 
 newtype CreateLogGroupRequest = CreateLogGroupRequest 
   { "logGroupName" :: (LogGroupName)
-  , "kmsKeyId" :: NullOrUndefined (KmsKeyId)
-  , "tags" :: NullOrUndefined (Tags)
+  , "kmsKeyId" :: Maybe (KmsKeyId)
+  , "tags" :: Maybe (Tags)
   }
 derive instance newtypeCreateLogGroupRequest :: Newtype CreateLogGroupRequest _
 derive instance repGenericCreateLogGroupRequest :: Generic CreateLogGroupRequest _
@@ -136,12 +135,12 @@ instance encodeCreateLogGroupRequest :: Encode CreateLogGroupRequest where encod
 
 -- | Constructs CreateLogGroupRequest from required parameters
 newCreateLogGroupRequest :: LogGroupName -> CreateLogGroupRequest
-newCreateLogGroupRequest _logGroupName = CreateLogGroupRequest { "logGroupName": _logGroupName, "kmsKeyId": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newCreateLogGroupRequest _logGroupName = CreateLogGroupRequest { "logGroupName": _logGroupName, "kmsKeyId": Nothing, "tags": Nothing }
 
 -- | Constructs CreateLogGroupRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateLogGroupRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "kmsKeyId" :: NullOrUndefined (KmsKeyId) , "tags" :: NullOrUndefined (Tags) } -> {"logGroupName" :: (LogGroupName) , "kmsKeyId" :: NullOrUndefined (KmsKeyId) , "tags" :: NullOrUndefined (Tags) } ) -> CreateLogGroupRequest
-newCreateLogGroupRequest' _logGroupName customize = (CreateLogGroupRequest <<< customize) { "logGroupName": _logGroupName, "kmsKeyId": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newCreateLogGroupRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "kmsKeyId" :: Maybe (KmsKeyId) , "tags" :: Maybe (Tags) } -> {"logGroupName" :: (LogGroupName) , "kmsKeyId" :: Maybe (KmsKeyId) , "tags" :: Maybe (Tags) } ) -> CreateLogGroupRequest
+newCreateLogGroupRequest' _logGroupName customize = (CreateLogGroupRequest <<< customize) { "logGroupName": _logGroupName, "kmsKeyId": Nothing, "tags": Nothing }
 
 
 
@@ -168,7 +167,7 @@ newCreateLogStreamRequest' _logGroupName _logStreamName customize = (CreateLogSt
 
 -- | <p>The event was already logged.</p>
 newtype DataAlreadyAcceptedException = DataAlreadyAcceptedException 
-  { "expectedSequenceToken" :: NullOrUndefined (SequenceToken)
+  { "expectedSequenceToken" :: Maybe (SequenceToken)
   }
 derive instance newtypeDataAlreadyAcceptedException :: Newtype DataAlreadyAcceptedException _
 derive instance repGenericDataAlreadyAcceptedException :: Generic DataAlreadyAcceptedException _
@@ -178,12 +177,12 @@ instance encodeDataAlreadyAcceptedException :: Encode DataAlreadyAcceptedExcepti
 
 -- | Constructs DataAlreadyAcceptedException from required parameters
 newDataAlreadyAcceptedException :: DataAlreadyAcceptedException
-newDataAlreadyAcceptedException  = DataAlreadyAcceptedException { "expectedSequenceToken": (NullOrUndefined Nothing) }
+newDataAlreadyAcceptedException  = DataAlreadyAcceptedException { "expectedSequenceToken": Nothing }
 
 -- | Constructs DataAlreadyAcceptedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDataAlreadyAcceptedException' :: ( { "expectedSequenceToken" :: NullOrUndefined (SequenceToken) } -> {"expectedSequenceToken" :: NullOrUndefined (SequenceToken) } ) -> DataAlreadyAcceptedException
-newDataAlreadyAcceptedException'  customize = (DataAlreadyAcceptedException <<< customize) { "expectedSequenceToken": (NullOrUndefined Nothing) }
+newDataAlreadyAcceptedException' :: ( { "expectedSequenceToken" :: Maybe (SequenceToken) } -> {"expectedSequenceToken" :: Maybe (SequenceToken) } ) -> DataAlreadyAcceptedException
+newDataAlreadyAcceptedException'  customize = (DataAlreadyAcceptedException <<< customize) { "expectedSequenceToken": Nothing }
 
 
 
@@ -289,7 +288,7 @@ newDeleteMetricFilterRequest' _filterName _logGroupName customize = (DeleteMetri
 
 
 newtype DeleteResourcePolicyRequest = DeleteResourcePolicyRequest 
-  { "policyName" :: NullOrUndefined (PolicyName)
+  { "policyName" :: Maybe (PolicyName)
   }
 derive instance newtypeDeleteResourcePolicyRequest :: Newtype DeleteResourcePolicyRequest _
 derive instance repGenericDeleteResourcePolicyRequest :: Generic DeleteResourcePolicyRequest _
@@ -299,12 +298,12 @@ instance encodeDeleteResourcePolicyRequest :: Encode DeleteResourcePolicyRequest
 
 -- | Constructs DeleteResourcePolicyRequest from required parameters
 newDeleteResourcePolicyRequest :: DeleteResourcePolicyRequest
-newDeleteResourcePolicyRequest  = DeleteResourcePolicyRequest { "policyName": (NullOrUndefined Nothing) }
+newDeleteResourcePolicyRequest  = DeleteResourcePolicyRequest { "policyName": Nothing }
 
 -- | Constructs DeleteResourcePolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteResourcePolicyRequest' :: ( { "policyName" :: NullOrUndefined (PolicyName) } -> {"policyName" :: NullOrUndefined (PolicyName) } ) -> DeleteResourcePolicyRequest
-newDeleteResourcePolicyRequest'  customize = (DeleteResourcePolicyRequest <<< customize) { "policyName": (NullOrUndefined Nothing) }
+newDeleteResourcePolicyRequest' :: ( { "policyName" :: Maybe (PolicyName) } -> {"policyName" :: Maybe (PolicyName) } ) -> DeleteResourcePolicyRequest
+newDeleteResourcePolicyRequest'  customize = (DeleteResourcePolicyRequest <<< customize) { "policyName": Nothing }
 
 
 
@@ -359,9 +358,9 @@ instance encodeDescending :: Encode Descending where encode = genericEncode opti
 
 
 newtype DescribeDestinationsRequest = DescribeDestinationsRequest 
-  { "DestinationNamePrefix" :: NullOrUndefined (DestinationName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  { "DestinationNamePrefix" :: Maybe (DestinationName)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeDestinationsRequest :: Newtype DescribeDestinationsRequest _
 derive instance repGenericDescribeDestinationsRequest :: Generic DescribeDestinationsRequest _
@@ -371,18 +370,18 @@ instance encodeDescribeDestinationsRequest :: Encode DescribeDestinationsRequest
 
 -- | Constructs DescribeDestinationsRequest from required parameters
 newDescribeDestinationsRequest :: DescribeDestinationsRequest
-newDescribeDestinationsRequest  = DescribeDestinationsRequest { "DestinationNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDestinationsRequest  = DescribeDestinationsRequest { "DestinationNamePrefix": Nothing, "limit": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDestinationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDestinationsRequest' :: ( { "DestinationNamePrefix" :: NullOrUndefined (DestinationName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"DestinationNamePrefix" :: NullOrUndefined (DestinationName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeDestinationsRequest
-newDescribeDestinationsRequest'  customize = (DescribeDestinationsRequest <<< customize) { "DestinationNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDestinationsRequest' :: ( { "DestinationNamePrefix" :: Maybe (DestinationName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"DestinationNamePrefix" :: Maybe (DestinationName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeDestinationsRequest
+newDescribeDestinationsRequest'  customize = (DescribeDestinationsRequest <<< customize) { "DestinationNamePrefix": Nothing, "limit": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeDestinationsResponse = DescribeDestinationsResponse 
-  { "destinations" :: NullOrUndefined (Destinations)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "destinations" :: Maybe (Destinations)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeDestinationsResponse :: Newtype DescribeDestinationsResponse _
 derive instance repGenericDescribeDestinationsResponse :: Generic DescribeDestinationsResponse _
@@ -392,20 +391,20 @@ instance encodeDescribeDestinationsResponse :: Encode DescribeDestinationsRespon
 
 -- | Constructs DescribeDestinationsResponse from required parameters
 newDescribeDestinationsResponse :: DescribeDestinationsResponse
-newDescribeDestinationsResponse  = DescribeDestinationsResponse { "destinations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDestinationsResponse  = DescribeDestinationsResponse { "destinations": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeDestinationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDestinationsResponse' :: ( { "destinations" :: NullOrUndefined (Destinations) , "nextToken" :: NullOrUndefined (NextToken) } -> {"destinations" :: NullOrUndefined (Destinations) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeDestinationsResponse
-newDescribeDestinationsResponse'  customize = (DescribeDestinationsResponse <<< customize) { "destinations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeDestinationsResponse' :: ( { "destinations" :: Maybe (Destinations) , "nextToken" :: Maybe (NextToken) } -> {"destinations" :: Maybe (Destinations) , "nextToken" :: Maybe (NextToken) } ) -> DescribeDestinationsResponse
+newDescribeDestinationsResponse'  customize = (DescribeDestinationsResponse <<< customize) { "destinations": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeExportTasksRequest = DescribeExportTasksRequest 
-  { "taskId" :: NullOrUndefined (ExportTaskId)
-  , "statusCode" :: NullOrUndefined (ExportTaskStatusCode)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  { "taskId" :: Maybe (ExportTaskId)
+  , "statusCode" :: Maybe (ExportTaskStatusCode)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeExportTasksRequest :: Newtype DescribeExportTasksRequest _
 derive instance repGenericDescribeExportTasksRequest :: Generic DescribeExportTasksRequest _
@@ -415,18 +414,18 @@ instance encodeDescribeExportTasksRequest :: Encode DescribeExportTasksRequest w
 
 -- | Constructs DescribeExportTasksRequest from required parameters
 newDescribeExportTasksRequest :: DescribeExportTasksRequest
-newDescribeExportTasksRequest  = DescribeExportTasksRequest { "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing) }
+newDescribeExportTasksRequest  = DescribeExportTasksRequest { "limit": Nothing, "nextToken": Nothing, "statusCode": Nothing, "taskId": Nothing }
 
 -- | Constructs DescribeExportTasksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportTasksRequest' :: ( { "taskId" :: NullOrUndefined (ExportTaskId) , "statusCode" :: NullOrUndefined (ExportTaskStatusCode) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"taskId" :: NullOrUndefined (ExportTaskId) , "statusCode" :: NullOrUndefined (ExportTaskStatusCode) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeExportTasksRequest
-newDescribeExportTasksRequest'  customize = (DescribeExportTasksRequest <<< customize) { "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing) }
+newDescribeExportTasksRequest' :: ( { "taskId" :: Maybe (ExportTaskId) , "statusCode" :: Maybe (ExportTaskStatusCode) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"taskId" :: Maybe (ExportTaskId) , "statusCode" :: Maybe (ExportTaskStatusCode) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeExportTasksRequest
+newDescribeExportTasksRequest'  customize = (DescribeExportTasksRequest <<< customize) { "limit": Nothing, "nextToken": Nothing, "statusCode": Nothing, "taskId": Nothing }
 
 
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse 
-  { "exportTasks" :: NullOrUndefined (ExportTasks)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "exportTasks" :: Maybe (ExportTasks)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeExportTasksResponse :: Newtype DescribeExportTasksResponse _
 derive instance repGenericDescribeExportTasksResponse :: Generic DescribeExportTasksResponse _
@@ -436,12 +435,12 @@ instance encodeDescribeExportTasksResponse :: Encode DescribeExportTasksResponse
 
 -- | Constructs DescribeExportTasksResponse from required parameters
 newDescribeExportTasksResponse :: DescribeExportTasksResponse
-newDescribeExportTasksResponse  = DescribeExportTasksResponse { "exportTasks": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksResponse  = DescribeExportTasksResponse { "exportTasks": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeExportTasksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportTasksResponse' :: ( { "exportTasks" :: NullOrUndefined (ExportTasks) , "nextToken" :: NullOrUndefined (NextToken) } -> {"exportTasks" :: NullOrUndefined (ExportTasks) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeExportTasksResponse
-newDescribeExportTasksResponse'  customize = (DescribeExportTasksResponse <<< customize) { "exportTasks": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksResponse' :: ( { "exportTasks" :: Maybe (ExportTasks) , "nextToken" :: Maybe (NextToken) } -> {"exportTasks" :: Maybe (ExportTasks) , "nextToken" :: Maybe (NextToken) } ) -> DescribeExportTasksResponse
+newDescribeExportTasksResponse'  customize = (DescribeExportTasksResponse <<< customize) { "exportTasks": Nothing, "nextToken": Nothing }
 
 
 
@@ -455,9 +454,9 @@ instance encodeDescribeLimit :: Encode DescribeLimit where encode = genericEncod
 
 
 newtype DescribeLogGroupsRequest = DescribeLogGroupsRequest 
-  { "logGroupNamePrefix" :: NullOrUndefined (LogGroupName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  { "logGroupNamePrefix" :: Maybe (LogGroupName)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeLogGroupsRequest :: Newtype DescribeLogGroupsRequest _
 derive instance repGenericDescribeLogGroupsRequest :: Generic DescribeLogGroupsRequest _
@@ -467,18 +466,18 @@ instance encodeDescribeLogGroupsRequest :: Encode DescribeLogGroupsRequest where
 
 -- | Constructs DescribeLogGroupsRequest from required parameters
 newDescribeLogGroupsRequest :: DescribeLogGroupsRequest
-newDescribeLogGroupsRequest  = DescribeLogGroupsRequest { "limit": (NullOrUndefined Nothing), "logGroupNamePrefix": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogGroupsRequest  = DescribeLogGroupsRequest { "limit": Nothing, "logGroupNamePrefix": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeLogGroupsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLogGroupsRequest' :: ( { "logGroupNamePrefix" :: NullOrUndefined (LogGroupName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"logGroupNamePrefix" :: NullOrUndefined (LogGroupName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeLogGroupsRequest
-newDescribeLogGroupsRequest'  customize = (DescribeLogGroupsRequest <<< customize) { "limit": (NullOrUndefined Nothing), "logGroupNamePrefix": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogGroupsRequest' :: ( { "logGroupNamePrefix" :: Maybe (LogGroupName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"logGroupNamePrefix" :: Maybe (LogGroupName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeLogGroupsRequest
+newDescribeLogGroupsRequest'  customize = (DescribeLogGroupsRequest <<< customize) { "limit": Nothing, "logGroupNamePrefix": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeLogGroupsResponse = DescribeLogGroupsResponse 
-  { "logGroups" :: NullOrUndefined (LogGroups)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "logGroups" :: Maybe (LogGroups)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeLogGroupsResponse :: Newtype DescribeLogGroupsResponse _
 derive instance repGenericDescribeLogGroupsResponse :: Generic DescribeLogGroupsResponse _
@@ -488,22 +487,22 @@ instance encodeDescribeLogGroupsResponse :: Encode DescribeLogGroupsResponse whe
 
 -- | Constructs DescribeLogGroupsResponse from required parameters
 newDescribeLogGroupsResponse :: DescribeLogGroupsResponse
-newDescribeLogGroupsResponse  = DescribeLogGroupsResponse { "logGroups": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogGroupsResponse  = DescribeLogGroupsResponse { "logGroups": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeLogGroupsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLogGroupsResponse' :: ( { "logGroups" :: NullOrUndefined (LogGroups) , "nextToken" :: NullOrUndefined (NextToken) } -> {"logGroups" :: NullOrUndefined (LogGroups) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeLogGroupsResponse
-newDescribeLogGroupsResponse'  customize = (DescribeLogGroupsResponse <<< customize) { "logGroups": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogGroupsResponse' :: ( { "logGroups" :: Maybe (LogGroups) , "nextToken" :: Maybe (NextToken) } -> {"logGroups" :: Maybe (LogGroups) , "nextToken" :: Maybe (NextToken) } ) -> DescribeLogGroupsResponse
+newDescribeLogGroupsResponse'  customize = (DescribeLogGroupsResponse <<< customize) { "logGroups": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeLogStreamsRequest = DescribeLogStreamsRequest 
   { "logGroupName" :: (LogGroupName)
-  , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName)
-  , "orderBy" :: NullOrUndefined (OrderBy)
-  , "descending" :: NullOrUndefined (Descending)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  , "logStreamNamePrefix" :: Maybe (LogStreamName)
+  , "orderBy" :: Maybe (OrderBy)
+  , "descending" :: Maybe (Descending)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeLogStreamsRequest :: Newtype DescribeLogStreamsRequest _
 derive instance repGenericDescribeLogStreamsRequest :: Generic DescribeLogStreamsRequest _
@@ -513,18 +512,18 @@ instance encodeDescribeLogStreamsRequest :: Encode DescribeLogStreamsRequest whe
 
 -- | Constructs DescribeLogStreamsRequest from required parameters
 newDescribeLogStreamsRequest :: LogGroupName -> DescribeLogStreamsRequest
-newDescribeLogStreamsRequest _logGroupName = DescribeLogStreamsRequest { "logGroupName": _logGroupName, "descending": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logStreamNamePrefix": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "orderBy": (NullOrUndefined Nothing) }
+newDescribeLogStreamsRequest _logGroupName = DescribeLogStreamsRequest { "logGroupName": _logGroupName, "descending": Nothing, "limit": Nothing, "logStreamNamePrefix": Nothing, "nextToken": Nothing, "orderBy": Nothing }
 
 -- | Constructs DescribeLogStreamsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLogStreamsRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName) , "orderBy" :: NullOrUndefined (OrderBy) , "descending" :: NullOrUndefined (Descending) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: NullOrUndefined (LogStreamName) , "orderBy" :: NullOrUndefined (OrderBy) , "descending" :: NullOrUndefined (Descending) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeLogStreamsRequest
-newDescribeLogStreamsRequest' _logGroupName customize = (DescribeLogStreamsRequest <<< customize) { "logGroupName": _logGroupName, "descending": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logStreamNamePrefix": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "orderBy": (NullOrUndefined Nothing) }
+newDescribeLogStreamsRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: Maybe (LogStreamName) , "orderBy" :: Maybe (OrderBy) , "descending" :: Maybe (Descending) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"logGroupName" :: (LogGroupName) , "logStreamNamePrefix" :: Maybe (LogStreamName) , "orderBy" :: Maybe (OrderBy) , "descending" :: Maybe (Descending) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeLogStreamsRequest
+newDescribeLogStreamsRequest' _logGroupName customize = (DescribeLogStreamsRequest <<< customize) { "logGroupName": _logGroupName, "descending": Nothing, "limit": Nothing, "logStreamNamePrefix": Nothing, "nextToken": Nothing, "orderBy": Nothing }
 
 
 
 newtype DescribeLogStreamsResponse = DescribeLogStreamsResponse 
-  { "logStreams" :: NullOrUndefined (LogStreams)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "logStreams" :: Maybe (LogStreams)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeLogStreamsResponse :: Newtype DescribeLogStreamsResponse _
 derive instance repGenericDescribeLogStreamsResponse :: Generic DescribeLogStreamsResponse _
@@ -534,22 +533,22 @@ instance encodeDescribeLogStreamsResponse :: Encode DescribeLogStreamsResponse w
 
 -- | Constructs DescribeLogStreamsResponse from required parameters
 newDescribeLogStreamsResponse :: DescribeLogStreamsResponse
-newDescribeLogStreamsResponse  = DescribeLogStreamsResponse { "logStreams": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogStreamsResponse  = DescribeLogStreamsResponse { "logStreams": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeLogStreamsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeLogStreamsResponse' :: ( { "logStreams" :: NullOrUndefined (LogStreams) , "nextToken" :: NullOrUndefined (NextToken) } -> {"logStreams" :: NullOrUndefined (LogStreams) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeLogStreamsResponse
-newDescribeLogStreamsResponse'  customize = (DescribeLogStreamsResponse <<< customize) { "logStreams": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeLogStreamsResponse' :: ( { "logStreams" :: Maybe (LogStreams) , "nextToken" :: Maybe (NextToken) } -> {"logStreams" :: Maybe (LogStreams) , "nextToken" :: Maybe (NextToken) } ) -> DescribeLogStreamsResponse
+newDescribeLogStreamsResponse'  customize = (DescribeLogStreamsResponse <<< customize) { "logStreams": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeMetricFiltersRequest = DescribeMetricFiltersRequest 
-  { "logGroupName" :: NullOrUndefined (LogGroupName)
-  , "filterNamePrefix" :: NullOrUndefined (FilterName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
-  , "metricName" :: NullOrUndefined (MetricName)
-  , "metricNamespace" :: NullOrUndefined (MetricNamespace)
+  { "logGroupName" :: Maybe (LogGroupName)
+  , "filterNamePrefix" :: Maybe (FilterName)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
+  , "metricName" :: Maybe (MetricName)
+  , "metricNamespace" :: Maybe (MetricNamespace)
   }
 derive instance newtypeDescribeMetricFiltersRequest :: Newtype DescribeMetricFiltersRequest _
 derive instance repGenericDescribeMetricFiltersRequest :: Generic DescribeMetricFiltersRequest _
@@ -559,18 +558,18 @@ instance encodeDescribeMetricFiltersRequest :: Encode DescribeMetricFiltersReque
 
 -- | Constructs DescribeMetricFiltersRequest from required parameters
 newDescribeMetricFiltersRequest :: DescribeMetricFiltersRequest
-newDescribeMetricFiltersRequest  = DescribeMetricFiltersRequest { "filterNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricName": (NullOrUndefined Nothing), "metricNamespace": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeMetricFiltersRequest  = DescribeMetricFiltersRequest { "filterNamePrefix": Nothing, "limit": Nothing, "logGroupName": Nothing, "metricName": Nothing, "metricNamespace": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeMetricFiltersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMetricFiltersRequest' :: ( { "logGroupName" :: NullOrUndefined (LogGroupName) , "filterNamePrefix" :: NullOrUndefined (FilterName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) , "metricName" :: NullOrUndefined (MetricName) , "metricNamespace" :: NullOrUndefined (MetricNamespace) } -> {"logGroupName" :: NullOrUndefined (LogGroupName) , "filterNamePrefix" :: NullOrUndefined (FilterName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) , "metricName" :: NullOrUndefined (MetricName) , "metricNamespace" :: NullOrUndefined (MetricNamespace) } ) -> DescribeMetricFiltersRequest
-newDescribeMetricFiltersRequest'  customize = (DescribeMetricFiltersRequest <<< customize) { "filterNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricName": (NullOrUndefined Nothing), "metricNamespace": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeMetricFiltersRequest' :: ( { "logGroupName" :: Maybe (LogGroupName) , "filterNamePrefix" :: Maybe (FilterName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) , "metricName" :: Maybe (MetricName) , "metricNamespace" :: Maybe (MetricNamespace) } -> {"logGroupName" :: Maybe (LogGroupName) , "filterNamePrefix" :: Maybe (FilterName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) , "metricName" :: Maybe (MetricName) , "metricNamespace" :: Maybe (MetricNamespace) } ) -> DescribeMetricFiltersRequest
+newDescribeMetricFiltersRequest'  customize = (DescribeMetricFiltersRequest <<< customize) { "filterNamePrefix": Nothing, "limit": Nothing, "logGroupName": Nothing, "metricName": Nothing, "metricNamespace": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeMetricFiltersResponse = DescribeMetricFiltersResponse 
-  { "metricFilters" :: NullOrUndefined (MetricFilters)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "metricFilters" :: Maybe (MetricFilters)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeMetricFiltersResponse :: Newtype DescribeMetricFiltersResponse _
 derive instance repGenericDescribeMetricFiltersResponse :: Generic DescribeMetricFiltersResponse _
@@ -580,18 +579,18 @@ instance encodeDescribeMetricFiltersResponse :: Encode DescribeMetricFiltersResp
 
 -- | Constructs DescribeMetricFiltersResponse from required parameters
 newDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse
-newDescribeMetricFiltersResponse  = DescribeMetricFiltersResponse { "metricFilters": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeMetricFiltersResponse  = DescribeMetricFiltersResponse { "metricFilters": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeMetricFiltersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMetricFiltersResponse' :: ( { "metricFilters" :: NullOrUndefined (MetricFilters) , "nextToken" :: NullOrUndefined (NextToken) } -> {"metricFilters" :: NullOrUndefined (MetricFilters) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeMetricFiltersResponse
-newDescribeMetricFiltersResponse'  customize = (DescribeMetricFiltersResponse <<< customize) { "metricFilters": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeMetricFiltersResponse' :: ( { "metricFilters" :: Maybe (MetricFilters) , "nextToken" :: Maybe (NextToken) } -> {"metricFilters" :: Maybe (MetricFilters) , "nextToken" :: Maybe (NextToken) } ) -> DescribeMetricFiltersResponse
+newDescribeMetricFiltersResponse'  customize = (DescribeMetricFiltersResponse <<< customize) { "metricFilters": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeResourcePoliciesRequest = DescribeResourcePoliciesRequest 
-  { "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  { "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeResourcePoliciesRequest :: Newtype DescribeResourcePoliciesRequest _
 derive instance repGenericDescribeResourcePoliciesRequest :: Generic DescribeResourcePoliciesRequest _
@@ -601,18 +600,18 @@ instance encodeDescribeResourcePoliciesRequest :: Encode DescribeResourcePolicie
 
 -- | Constructs DescribeResourcePoliciesRequest from required parameters
 newDescribeResourcePoliciesRequest :: DescribeResourcePoliciesRequest
-newDescribeResourcePoliciesRequest  = DescribeResourcePoliciesRequest { "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeResourcePoliciesRequest  = DescribeResourcePoliciesRequest { "limit": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeResourcePoliciesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeResourcePoliciesRequest' :: ( { "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeResourcePoliciesRequest
-newDescribeResourcePoliciesRequest'  customize = (DescribeResourcePoliciesRequest <<< customize) { "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeResourcePoliciesRequest' :: ( { "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeResourcePoliciesRequest
+newDescribeResourcePoliciesRequest'  customize = (DescribeResourcePoliciesRequest <<< customize) { "limit": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse 
-  { "resourcePolicies" :: NullOrUndefined (ResourcePolicies)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "resourcePolicies" :: Maybe (ResourcePolicies)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeResourcePoliciesResponse :: Newtype DescribeResourcePoliciesResponse _
 derive instance repGenericDescribeResourcePoliciesResponse :: Generic DescribeResourcePoliciesResponse _
@@ -622,20 +621,20 @@ instance encodeDescribeResourcePoliciesResponse :: Encode DescribeResourcePolici
 
 -- | Constructs DescribeResourcePoliciesResponse from required parameters
 newDescribeResourcePoliciesResponse :: DescribeResourcePoliciesResponse
-newDescribeResourcePoliciesResponse  = DescribeResourcePoliciesResponse { "nextToken": (NullOrUndefined Nothing), "resourcePolicies": (NullOrUndefined Nothing) }
+newDescribeResourcePoliciesResponse  = DescribeResourcePoliciesResponse { "nextToken": Nothing, "resourcePolicies": Nothing }
 
 -- | Constructs DescribeResourcePoliciesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeResourcePoliciesResponse' :: ( { "resourcePolicies" :: NullOrUndefined (ResourcePolicies) , "nextToken" :: NullOrUndefined (NextToken) } -> {"resourcePolicies" :: NullOrUndefined (ResourcePolicies) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeResourcePoliciesResponse
-newDescribeResourcePoliciesResponse'  customize = (DescribeResourcePoliciesResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "resourcePolicies": (NullOrUndefined Nothing) }
+newDescribeResourcePoliciesResponse' :: ( { "resourcePolicies" :: Maybe (ResourcePolicies) , "nextToken" :: Maybe (NextToken) } -> {"resourcePolicies" :: Maybe (ResourcePolicies) , "nextToken" :: Maybe (NextToken) } ) -> DescribeResourcePoliciesResponse
+newDescribeResourcePoliciesResponse'  customize = (DescribeResourcePoliciesResponse <<< customize) { "nextToken": Nothing, "resourcePolicies": Nothing }
 
 
 
 newtype DescribeSubscriptionFiltersRequest = DescribeSubscriptionFiltersRequest 
   { "logGroupName" :: (LogGroupName)
-  , "filterNamePrefix" :: NullOrUndefined (FilterName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (DescribeLimit)
+  , "filterNamePrefix" :: Maybe (FilterName)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (DescribeLimit)
   }
 derive instance newtypeDescribeSubscriptionFiltersRequest :: Newtype DescribeSubscriptionFiltersRequest _
 derive instance repGenericDescribeSubscriptionFiltersRequest :: Generic DescribeSubscriptionFiltersRequest _
@@ -645,18 +644,18 @@ instance encodeDescribeSubscriptionFiltersRequest :: Encode DescribeSubscription
 
 -- | Constructs DescribeSubscriptionFiltersRequest from required parameters
 newDescribeSubscriptionFiltersRequest :: LogGroupName -> DescribeSubscriptionFiltersRequest
-newDescribeSubscriptionFiltersRequest _logGroupName = DescribeSubscriptionFiltersRequest { "logGroupName": _logGroupName, "filterNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeSubscriptionFiltersRequest _logGroupName = DescribeSubscriptionFiltersRequest { "logGroupName": _logGroupName, "filterNamePrefix": Nothing, "limit": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeSubscriptionFiltersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeSubscriptionFiltersRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "filterNamePrefix" :: NullOrUndefined (FilterName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } -> {"logGroupName" :: (LogGroupName) , "filterNamePrefix" :: NullOrUndefined (FilterName) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (DescribeLimit) } ) -> DescribeSubscriptionFiltersRequest
-newDescribeSubscriptionFiltersRequest' _logGroupName customize = (DescribeSubscriptionFiltersRequest <<< customize) { "logGroupName": _logGroupName, "filterNamePrefix": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeSubscriptionFiltersRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "filterNamePrefix" :: Maybe (FilterName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } -> {"logGroupName" :: (LogGroupName) , "filterNamePrefix" :: Maybe (FilterName) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (DescribeLimit) } ) -> DescribeSubscriptionFiltersRequest
+newDescribeSubscriptionFiltersRequest' _logGroupName customize = (DescribeSubscriptionFiltersRequest <<< customize) { "logGroupName": _logGroupName, "filterNamePrefix": Nothing, "limit": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse 
-  { "subscriptionFilters" :: NullOrUndefined (SubscriptionFilters)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "subscriptionFilters" :: Maybe (SubscriptionFilters)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeSubscriptionFiltersResponse :: Newtype DescribeSubscriptionFiltersResponse _
 derive instance repGenericDescribeSubscriptionFiltersResponse :: Generic DescribeSubscriptionFiltersResponse _
@@ -666,23 +665,23 @@ instance encodeDescribeSubscriptionFiltersResponse :: Encode DescribeSubscriptio
 
 -- | Constructs DescribeSubscriptionFiltersResponse from required parameters
 newDescribeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse
-newDescribeSubscriptionFiltersResponse  = DescribeSubscriptionFiltersResponse { "nextToken": (NullOrUndefined Nothing), "subscriptionFilters": (NullOrUndefined Nothing) }
+newDescribeSubscriptionFiltersResponse  = DescribeSubscriptionFiltersResponse { "nextToken": Nothing, "subscriptionFilters": Nothing }
 
 -- | Constructs DescribeSubscriptionFiltersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeSubscriptionFiltersResponse' :: ( { "subscriptionFilters" :: NullOrUndefined (SubscriptionFilters) , "nextToken" :: NullOrUndefined (NextToken) } -> {"subscriptionFilters" :: NullOrUndefined (SubscriptionFilters) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeSubscriptionFiltersResponse
-newDescribeSubscriptionFiltersResponse'  customize = (DescribeSubscriptionFiltersResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "subscriptionFilters": (NullOrUndefined Nothing) }
+newDescribeSubscriptionFiltersResponse' :: ( { "subscriptionFilters" :: Maybe (SubscriptionFilters) , "nextToken" :: Maybe (NextToken) } -> {"subscriptionFilters" :: Maybe (SubscriptionFilters) , "nextToken" :: Maybe (NextToken) } ) -> DescribeSubscriptionFiltersResponse
+newDescribeSubscriptionFiltersResponse'  customize = (DescribeSubscriptionFiltersResponse <<< customize) { "nextToken": Nothing, "subscriptionFilters": Nothing }
 
 
 
 -- | <p>Represents a cross-account destination that receives subscription log events.</p>
 newtype Destination = Destination 
-  { "destinationName" :: NullOrUndefined (DestinationName)
-  , "targetArn" :: NullOrUndefined (TargetArn)
-  , "roleArn" :: NullOrUndefined (RoleArn)
-  , "accessPolicy" :: NullOrUndefined (AccessPolicy)
-  , "arn" :: NullOrUndefined (Arn)
-  , "creationTime" :: NullOrUndefined (Types.Timestamp)
+  { "destinationName" :: Maybe (DestinationName)
+  , "targetArn" :: Maybe (TargetArn)
+  , "roleArn" :: Maybe (RoleArn)
+  , "accessPolicy" :: Maybe (AccessPolicy)
+  , "arn" :: Maybe (Arn)
+  , "creationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeDestination :: Newtype Destination _
 derive instance repGenericDestination :: Generic Destination _
@@ -692,12 +691,12 @@ instance encodeDestination :: Encode Destination where encode = genericEncode op
 
 -- | Constructs Destination from required parameters
 newDestination :: Destination
-newDestination  = Destination { "accessPolicy": (NullOrUndefined Nothing), "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "destinationName": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing), "targetArn": (NullOrUndefined Nothing) }
+newDestination  = Destination { "accessPolicy": Nothing, "arn": Nothing, "creationTime": Nothing, "destinationName": Nothing, "roleArn": Nothing, "targetArn": Nothing }
 
 -- | Constructs Destination's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDestination' :: ( { "destinationName" :: NullOrUndefined (DestinationName) , "targetArn" :: NullOrUndefined (TargetArn) , "roleArn" :: NullOrUndefined (RoleArn) , "accessPolicy" :: NullOrUndefined (AccessPolicy) , "arn" :: NullOrUndefined (Arn) , "creationTime" :: NullOrUndefined (Types.Timestamp) } -> {"destinationName" :: NullOrUndefined (DestinationName) , "targetArn" :: NullOrUndefined (TargetArn) , "roleArn" :: NullOrUndefined (RoleArn) , "accessPolicy" :: NullOrUndefined (AccessPolicy) , "arn" :: NullOrUndefined (Arn) , "creationTime" :: NullOrUndefined (Types.Timestamp) } ) -> Destination
-newDestination'  customize = (Destination <<< customize) { "accessPolicy": (NullOrUndefined Nothing), "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "destinationName": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing), "targetArn": (NullOrUndefined Nothing) }
+newDestination' :: ( { "destinationName" :: Maybe (DestinationName) , "targetArn" :: Maybe (TargetArn) , "roleArn" :: Maybe (RoleArn) , "accessPolicy" :: Maybe (AccessPolicy) , "arn" :: Maybe (Arn) , "creationTime" :: Maybe (Types.Timestamp) } -> {"destinationName" :: Maybe (DestinationName) , "targetArn" :: Maybe (TargetArn) , "roleArn" :: Maybe (RoleArn) , "accessPolicy" :: Maybe (AccessPolicy) , "arn" :: Maybe (Arn) , "creationTime" :: Maybe (Types.Timestamp) } ) -> Destination
+newDestination'  customize = (Destination <<< customize) { "accessPolicy": Nothing, "arn": Nothing, "creationTime": Nothing, "destinationName": Nothing, "roleArn": Nothing, "targetArn": Nothing }
 
 
 
@@ -814,15 +813,15 @@ instance encodeExportDestinationPrefix :: Encode ExportDestinationPrefix where e
 
 -- | <p>Represents an export task.</p>
 newtype ExportTask = ExportTask 
-  { "taskId" :: NullOrUndefined (ExportTaskId)
-  , "taskName" :: NullOrUndefined (ExportTaskName)
-  , "logGroupName" :: NullOrUndefined (LogGroupName)
-  , "from" :: NullOrUndefined (Types.Timestamp)
-  , "to" :: NullOrUndefined (Types.Timestamp)
-  , "destination" :: NullOrUndefined (ExportDestinationBucket)
-  , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix)
-  , "status" :: NullOrUndefined (ExportTaskStatus)
-  , "executionInfo" :: NullOrUndefined (ExportTaskExecutionInfo)
+  { "taskId" :: Maybe (ExportTaskId)
+  , "taskName" :: Maybe (ExportTaskName)
+  , "logGroupName" :: Maybe (LogGroupName)
+  , "from" :: Maybe (Types.Timestamp)
+  , "to" :: Maybe (Types.Timestamp)
+  , "destination" :: Maybe (ExportDestinationBucket)
+  , "destinationPrefix" :: Maybe (ExportDestinationPrefix)
+  , "status" :: Maybe (ExportTaskStatus)
+  , "executionInfo" :: Maybe (ExportTaskExecutionInfo)
   }
 derive instance newtypeExportTask :: Newtype ExportTask _
 derive instance repGenericExportTask :: Generic ExportTask _
@@ -832,19 +831,19 @@ instance encodeExportTask :: Encode ExportTask where encode = genericEncode opti
 
 -- | Constructs ExportTask from required parameters
 newExportTask :: ExportTask
-newExportTask  = ExportTask { "destination": (NullOrUndefined Nothing), "destinationPrefix": (NullOrUndefined Nothing), "executionInfo": (NullOrUndefined Nothing), "from": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing), "taskName": (NullOrUndefined Nothing), "to": (NullOrUndefined Nothing) }
+newExportTask  = ExportTask { "destination": Nothing, "destinationPrefix": Nothing, "executionInfo": Nothing, "from": Nothing, "logGroupName": Nothing, "status": Nothing, "taskId": Nothing, "taskName": Nothing, "to": Nothing }
 
 -- | Constructs ExportTask's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportTask' :: ( { "taskId" :: NullOrUndefined (ExportTaskId) , "taskName" :: NullOrUndefined (ExportTaskName) , "logGroupName" :: NullOrUndefined (LogGroupName) , "from" :: NullOrUndefined (Types.Timestamp) , "to" :: NullOrUndefined (Types.Timestamp) , "destination" :: NullOrUndefined (ExportDestinationBucket) , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix) , "status" :: NullOrUndefined (ExportTaskStatus) , "executionInfo" :: NullOrUndefined (ExportTaskExecutionInfo) } -> {"taskId" :: NullOrUndefined (ExportTaskId) , "taskName" :: NullOrUndefined (ExportTaskName) , "logGroupName" :: NullOrUndefined (LogGroupName) , "from" :: NullOrUndefined (Types.Timestamp) , "to" :: NullOrUndefined (Types.Timestamp) , "destination" :: NullOrUndefined (ExportDestinationBucket) , "destinationPrefix" :: NullOrUndefined (ExportDestinationPrefix) , "status" :: NullOrUndefined (ExportTaskStatus) , "executionInfo" :: NullOrUndefined (ExportTaskExecutionInfo) } ) -> ExportTask
-newExportTask'  customize = (ExportTask <<< customize) { "destination": (NullOrUndefined Nothing), "destinationPrefix": (NullOrUndefined Nothing), "executionInfo": (NullOrUndefined Nothing), "from": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing), "taskName": (NullOrUndefined Nothing), "to": (NullOrUndefined Nothing) }
+newExportTask' :: ( { "taskId" :: Maybe (ExportTaskId) , "taskName" :: Maybe (ExportTaskName) , "logGroupName" :: Maybe (LogGroupName) , "from" :: Maybe (Types.Timestamp) , "to" :: Maybe (Types.Timestamp) , "destination" :: Maybe (ExportDestinationBucket) , "destinationPrefix" :: Maybe (ExportDestinationPrefix) , "status" :: Maybe (ExportTaskStatus) , "executionInfo" :: Maybe (ExportTaskExecutionInfo) } -> {"taskId" :: Maybe (ExportTaskId) , "taskName" :: Maybe (ExportTaskName) , "logGroupName" :: Maybe (LogGroupName) , "from" :: Maybe (Types.Timestamp) , "to" :: Maybe (Types.Timestamp) , "destination" :: Maybe (ExportDestinationBucket) , "destinationPrefix" :: Maybe (ExportDestinationPrefix) , "status" :: Maybe (ExportTaskStatus) , "executionInfo" :: Maybe (ExportTaskExecutionInfo) } ) -> ExportTask
+newExportTask'  customize = (ExportTask <<< customize) { "destination": Nothing, "destinationPrefix": Nothing, "executionInfo": Nothing, "from": Nothing, "logGroupName": Nothing, "status": Nothing, "taskId": Nothing, "taskName": Nothing, "to": Nothing }
 
 
 
 -- | <p>Represents the status of an export task.</p>
 newtype ExportTaskExecutionInfo = ExportTaskExecutionInfo 
-  { "creationTime" :: NullOrUndefined (Types.Timestamp)
-  , "completionTime" :: NullOrUndefined (Types.Timestamp)
+  { "creationTime" :: Maybe (Types.Timestamp)
+  , "completionTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeExportTaskExecutionInfo :: Newtype ExportTaskExecutionInfo _
 derive instance repGenericExportTaskExecutionInfo :: Generic ExportTaskExecutionInfo _
@@ -854,12 +853,12 @@ instance encodeExportTaskExecutionInfo :: Encode ExportTaskExecutionInfo where e
 
 -- | Constructs ExportTaskExecutionInfo from required parameters
 newExportTaskExecutionInfo :: ExportTaskExecutionInfo
-newExportTaskExecutionInfo  = ExportTaskExecutionInfo { "completionTime": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing) }
+newExportTaskExecutionInfo  = ExportTaskExecutionInfo { "completionTime": Nothing, "creationTime": Nothing }
 
 -- | Constructs ExportTaskExecutionInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportTaskExecutionInfo' :: ( { "creationTime" :: NullOrUndefined (Types.Timestamp) , "completionTime" :: NullOrUndefined (Types.Timestamp) } -> {"creationTime" :: NullOrUndefined (Types.Timestamp) , "completionTime" :: NullOrUndefined (Types.Timestamp) } ) -> ExportTaskExecutionInfo
-newExportTaskExecutionInfo'  customize = (ExportTaskExecutionInfo <<< customize) { "completionTime": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing) }
+newExportTaskExecutionInfo' :: ( { "creationTime" :: Maybe (Types.Timestamp) , "completionTime" :: Maybe (Types.Timestamp) } -> {"creationTime" :: Maybe (Types.Timestamp) , "completionTime" :: Maybe (Types.Timestamp) } ) -> ExportTaskExecutionInfo
+newExportTaskExecutionInfo'  customize = (ExportTaskExecutionInfo <<< customize) { "completionTime": Nothing, "creationTime": Nothing }
 
 
 
@@ -883,8 +882,8 @@ instance encodeExportTaskName :: Encode ExportTaskName where encode = genericEnc
 
 -- | <p>Represents the status of an export task.</p>
 newtype ExportTaskStatus = ExportTaskStatus 
-  { "code" :: NullOrUndefined (ExportTaskStatusCode)
-  , "message" :: NullOrUndefined (ExportTaskStatusMessage)
+  { "code" :: Maybe (ExportTaskStatusCode)
+  , "message" :: Maybe (ExportTaskStatusMessage)
   }
 derive instance newtypeExportTaskStatus :: Newtype ExportTaskStatus _
 derive instance repGenericExportTaskStatus :: Generic ExportTaskStatus _
@@ -894,12 +893,12 @@ instance encodeExportTaskStatus :: Encode ExportTaskStatus where encode = generi
 
 -- | Constructs ExportTaskStatus from required parameters
 newExportTaskStatus :: ExportTaskStatus
-newExportTaskStatus  = ExportTaskStatus { "code": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newExportTaskStatus  = ExportTaskStatus { "code": Nothing, "message": Nothing }
 
 -- | Constructs ExportTaskStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportTaskStatus' :: ( { "code" :: NullOrUndefined (ExportTaskStatusCode) , "message" :: NullOrUndefined (ExportTaskStatusMessage) } -> {"code" :: NullOrUndefined (ExportTaskStatusCode) , "message" :: NullOrUndefined (ExportTaskStatusMessage) } ) -> ExportTaskStatus
-newExportTaskStatus'  customize = (ExportTaskStatus <<< customize) { "code": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newExportTaskStatus' :: ( { "code" :: Maybe (ExportTaskStatusCode) , "message" :: Maybe (ExportTaskStatusMessage) } -> {"code" :: Maybe (ExportTaskStatusCode) , "message" :: Maybe (ExportTaskStatusMessage) } ) -> ExportTaskStatus
+newExportTaskStatus'  customize = (ExportTaskStatus <<< customize) { "code": Nothing, "message": Nothing }
 
 
 
@@ -950,13 +949,13 @@ instance encodeFilterCount :: Encode FilterCount where encode = genericEncode op
 
 newtype FilterLogEventsRequest = FilterLogEventsRequest 
   { "logGroupName" :: (LogGroupName)
-  , "logStreamNames" :: NullOrUndefined (InputLogStreamNames)
-  , "startTime" :: NullOrUndefined (Types.Timestamp)
-  , "endTime" :: NullOrUndefined (Types.Timestamp)
-  , "filterPattern" :: NullOrUndefined (FilterPattern)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (EventsLimit)
-  , "interleaved" :: NullOrUndefined (Interleaved)
+  , "logStreamNames" :: Maybe (InputLogStreamNames)
+  , "startTime" :: Maybe (Types.Timestamp)
+  , "endTime" :: Maybe (Types.Timestamp)
+  , "filterPattern" :: Maybe (FilterPattern)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (EventsLimit)
+  , "interleaved" :: Maybe (Interleaved)
   }
 derive instance newtypeFilterLogEventsRequest :: Newtype FilterLogEventsRequest _
 derive instance repGenericFilterLogEventsRequest :: Generic FilterLogEventsRequest _
@@ -966,19 +965,19 @@ instance encodeFilterLogEventsRequest :: Encode FilterLogEventsRequest where enc
 
 -- | Constructs FilterLogEventsRequest from required parameters
 newFilterLogEventsRequest :: LogGroupName -> FilterLogEventsRequest
-newFilterLogEventsRequest _logGroupName = FilterLogEventsRequest { "logGroupName": _logGroupName, "endTime": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "interleaved": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logStreamNames": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newFilterLogEventsRequest _logGroupName = FilterLogEventsRequest { "logGroupName": _logGroupName, "endTime": Nothing, "filterPattern": Nothing, "interleaved": Nothing, "limit": Nothing, "logStreamNames": Nothing, "nextToken": Nothing, "startTime": Nothing }
 
 -- | Constructs FilterLogEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFilterLogEventsRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "logStreamNames" :: NullOrUndefined (InputLogStreamNames) , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "filterPattern" :: NullOrUndefined (FilterPattern) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (EventsLimit) , "interleaved" :: NullOrUndefined (Interleaved) } -> {"logGroupName" :: (LogGroupName) , "logStreamNames" :: NullOrUndefined (InputLogStreamNames) , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "filterPattern" :: NullOrUndefined (FilterPattern) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (EventsLimit) , "interleaved" :: NullOrUndefined (Interleaved) } ) -> FilterLogEventsRequest
-newFilterLogEventsRequest' _logGroupName customize = (FilterLogEventsRequest <<< customize) { "logGroupName": _logGroupName, "endTime": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "interleaved": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "logStreamNames": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newFilterLogEventsRequest' :: LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "logStreamNames" :: Maybe (InputLogStreamNames) , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "filterPattern" :: Maybe (FilterPattern) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (EventsLimit) , "interleaved" :: Maybe (Interleaved) } -> {"logGroupName" :: (LogGroupName) , "logStreamNames" :: Maybe (InputLogStreamNames) , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "filterPattern" :: Maybe (FilterPattern) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (EventsLimit) , "interleaved" :: Maybe (Interleaved) } ) -> FilterLogEventsRequest
+newFilterLogEventsRequest' _logGroupName customize = (FilterLogEventsRequest <<< customize) { "logGroupName": _logGroupName, "endTime": Nothing, "filterPattern": Nothing, "interleaved": Nothing, "limit": Nothing, "logStreamNames": Nothing, "nextToken": Nothing, "startTime": Nothing }
 
 
 
 newtype FilterLogEventsResponse = FilterLogEventsResponse 
-  { "events" :: NullOrUndefined (FilteredLogEvents)
-  , "searchedLogStreams" :: NullOrUndefined (SearchedLogStreams)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "events" :: Maybe (FilteredLogEvents)
+  , "searchedLogStreams" :: Maybe (SearchedLogStreams)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeFilterLogEventsResponse :: Newtype FilterLogEventsResponse _
 derive instance repGenericFilterLogEventsResponse :: Generic FilterLogEventsResponse _
@@ -988,12 +987,12 @@ instance encodeFilterLogEventsResponse :: Encode FilterLogEventsResponse where e
 
 -- | Constructs FilterLogEventsResponse from required parameters
 newFilterLogEventsResponse :: FilterLogEventsResponse
-newFilterLogEventsResponse  = FilterLogEventsResponse { "events": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "searchedLogStreams": (NullOrUndefined Nothing) }
+newFilterLogEventsResponse  = FilterLogEventsResponse { "events": Nothing, "nextToken": Nothing, "searchedLogStreams": Nothing }
 
 -- | Constructs FilterLogEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFilterLogEventsResponse' :: ( { "events" :: NullOrUndefined (FilteredLogEvents) , "searchedLogStreams" :: NullOrUndefined (SearchedLogStreams) , "nextToken" :: NullOrUndefined (NextToken) } -> {"events" :: NullOrUndefined (FilteredLogEvents) , "searchedLogStreams" :: NullOrUndefined (SearchedLogStreams) , "nextToken" :: NullOrUndefined (NextToken) } ) -> FilterLogEventsResponse
-newFilterLogEventsResponse'  customize = (FilterLogEventsResponse <<< customize) { "events": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "searchedLogStreams": (NullOrUndefined Nothing) }
+newFilterLogEventsResponse' :: ( { "events" :: Maybe (FilteredLogEvents) , "searchedLogStreams" :: Maybe (SearchedLogStreams) , "nextToken" :: Maybe (NextToken) } -> {"events" :: Maybe (FilteredLogEvents) , "searchedLogStreams" :: Maybe (SearchedLogStreams) , "nextToken" :: Maybe (NextToken) } ) -> FilterLogEventsResponse
+newFilterLogEventsResponse'  customize = (FilterLogEventsResponse <<< customize) { "events": Nothing, "nextToken": Nothing, "searchedLogStreams": Nothing }
 
 
 
@@ -1018,11 +1017,11 @@ instance encodeFilterPattern :: Encode FilterPattern where encode = genericEncod
 
 -- | <p>Represents a matched event.</p>
 newtype FilteredLogEvent = FilteredLogEvent 
-  { "logStreamName" :: NullOrUndefined (LogStreamName)
-  , "timestamp" :: NullOrUndefined (Types.Timestamp)
-  , "message" :: NullOrUndefined (EventMessage)
-  , "ingestionTime" :: NullOrUndefined (Types.Timestamp)
-  , "eventId" :: NullOrUndefined (EventId)
+  { "logStreamName" :: Maybe (LogStreamName)
+  , "timestamp" :: Maybe (Types.Timestamp)
+  , "message" :: Maybe (EventMessage)
+  , "ingestionTime" :: Maybe (Types.Timestamp)
+  , "eventId" :: Maybe (EventId)
   }
 derive instance newtypeFilteredLogEvent :: Newtype FilteredLogEvent _
 derive instance repGenericFilteredLogEvent :: Generic FilteredLogEvent _
@@ -1032,12 +1031,12 @@ instance encodeFilteredLogEvent :: Encode FilteredLogEvent where encode = generi
 
 -- | Constructs FilteredLogEvent from required parameters
 newFilteredLogEvent :: FilteredLogEvent
-newFilteredLogEvent  = FilteredLogEvent { "eventId": (NullOrUndefined Nothing), "ingestionTime": (NullOrUndefined Nothing), "logStreamName": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing), "timestamp": (NullOrUndefined Nothing) }
+newFilteredLogEvent  = FilteredLogEvent { "eventId": Nothing, "ingestionTime": Nothing, "logStreamName": Nothing, "message": Nothing, "timestamp": Nothing }
 
 -- | Constructs FilteredLogEvent's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFilteredLogEvent' :: ( { "logStreamName" :: NullOrUndefined (LogStreamName) , "timestamp" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (EventMessage) , "ingestionTime" :: NullOrUndefined (Types.Timestamp) , "eventId" :: NullOrUndefined (EventId) } -> {"logStreamName" :: NullOrUndefined (LogStreamName) , "timestamp" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (EventMessage) , "ingestionTime" :: NullOrUndefined (Types.Timestamp) , "eventId" :: NullOrUndefined (EventId) } ) -> FilteredLogEvent
-newFilteredLogEvent'  customize = (FilteredLogEvent <<< customize) { "eventId": (NullOrUndefined Nothing), "ingestionTime": (NullOrUndefined Nothing), "logStreamName": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing), "timestamp": (NullOrUndefined Nothing) }
+newFilteredLogEvent' :: ( { "logStreamName" :: Maybe (LogStreamName) , "timestamp" :: Maybe (Types.Timestamp) , "message" :: Maybe (EventMessage) , "ingestionTime" :: Maybe (Types.Timestamp) , "eventId" :: Maybe (EventId) } -> {"logStreamName" :: Maybe (LogStreamName) , "timestamp" :: Maybe (Types.Timestamp) , "message" :: Maybe (EventMessage) , "ingestionTime" :: Maybe (Types.Timestamp) , "eventId" :: Maybe (EventId) } ) -> FilteredLogEvent
+newFilteredLogEvent'  customize = (FilteredLogEvent <<< customize) { "eventId": Nothing, "ingestionTime": Nothing, "logStreamName": Nothing, "message": Nothing, "timestamp": Nothing }
 
 
 
@@ -1053,11 +1052,11 @@ instance encodeFilteredLogEvents :: Encode FilteredLogEvents where encode = gene
 newtype GetLogEventsRequest = GetLogEventsRequest 
   { "logGroupName" :: (LogGroupName)
   , "logStreamName" :: (LogStreamName)
-  , "startTime" :: NullOrUndefined (Types.Timestamp)
-  , "endTime" :: NullOrUndefined (Types.Timestamp)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "limit" :: NullOrUndefined (EventsLimit)
-  , "startFromHead" :: NullOrUndefined (StartFromHead)
+  , "startTime" :: Maybe (Types.Timestamp)
+  , "endTime" :: Maybe (Types.Timestamp)
+  , "nextToken" :: Maybe (NextToken)
+  , "limit" :: Maybe (EventsLimit)
+  , "startFromHead" :: Maybe (StartFromHead)
   }
 derive instance newtypeGetLogEventsRequest :: Newtype GetLogEventsRequest _
 derive instance repGenericGetLogEventsRequest :: Generic GetLogEventsRequest _
@@ -1067,19 +1066,19 @@ instance encodeGetLogEventsRequest :: Encode GetLogEventsRequest where encode = 
 
 -- | Constructs GetLogEventsRequest from required parameters
 newGetLogEventsRequest :: LogGroupName -> LogStreamName -> GetLogEventsRequest
-newGetLogEventsRequest _logGroupName _logStreamName = GetLogEventsRequest { "logGroupName": _logGroupName, "logStreamName": _logStreamName, "endTime": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "startFromHead": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newGetLogEventsRequest _logGroupName _logStreamName = GetLogEventsRequest { "logGroupName": _logGroupName, "logStreamName": _logStreamName, "endTime": Nothing, "limit": Nothing, "nextToken": Nothing, "startFromHead": Nothing, "startTime": Nothing }
 
 -- | Constructs GetLogEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetLogEventsRequest' :: LogGroupName -> LogStreamName -> ( { "logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (EventsLimit) , "startFromHead" :: NullOrUndefined (StartFromHead) } -> {"logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "nextToken" :: NullOrUndefined (NextToken) , "limit" :: NullOrUndefined (EventsLimit) , "startFromHead" :: NullOrUndefined (StartFromHead) } ) -> GetLogEventsRequest
-newGetLogEventsRequest' _logGroupName _logStreamName customize = (GetLogEventsRequest <<< customize) { "logGroupName": _logGroupName, "logStreamName": _logStreamName, "endTime": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "startFromHead": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newGetLogEventsRequest' :: LogGroupName -> LogStreamName -> ( { "logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (EventsLimit) , "startFromHead" :: Maybe (StartFromHead) } -> {"logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "nextToken" :: Maybe (NextToken) , "limit" :: Maybe (EventsLimit) , "startFromHead" :: Maybe (StartFromHead) } ) -> GetLogEventsRequest
+newGetLogEventsRequest' _logGroupName _logStreamName customize = (GetLogEventsRequest <<< customize) { "logGroupName": _logGroupName, "logStreamName": _logStreamName, "endTime": Nothing, "limit": Nothing, "nextToken": Nothing, "startFromHead": Nothing, "startTime": Nothing }
 
 
 
 newtype GetLogEventsResponse = GetLogEventsResponse 
-  { "events" :: NullOrUndefined (OutputLogEvents)
-  , "nextForwardToken" :: NullOrUndefined (NextToken)
-  , "nextBackwardToken" :: NullOrUndefined (NextToken)
+  { "events" :: Maybe (OutputLogEvents)
+  , "nextForwardToken" :: Maybe (NextToken)
+  , "nextBackwardToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetLogEventsResponse :: Newtype GetLogEventsResponse _
 derive instance repGenericGetLogEventsResponse :: Generic GetLogEventsResponse _
@@ -1089,12 +1088,12 @@ instance encodeGetLogEventsResponse :: Encode GetLogEventsResponse where encode 
 
 -- | Constructs GetLogEventsResponse from required parameters
 newGetLogEventsResponse :: GetLogEventsResponse
-newGetLogEventsResponse  = GetLogEventsResponse { "events": (NullOrUndefined Nothing), "nextBackwardToken": (NullOrUndefined Nothing), "nextForwardToken": (NullOrUndefined Nothing) }
+newGetLogEventsResponse  = GetLogEventsResponse { "events": Nothing, "nextBackwardToken": Nothing, "nextForwardToken": Nothing }
 
 -- | Constructs GetLogEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetLogEventsResponse' :: ( { "events" :: NullOrUndefined (OutputLogEvents) , "nextForwardToken" :: NullOrUndefined (NextToken) , "nextBackwardToken" :: NullOrUndefined (NextToken) } -> {"events" :: NullOrUndefined (OutputLogEvents) , "nextForwardToken" :: NullOrUndefined (NextToken) , "nextBackwardToken" :: NullOrUndefined (NextToken) } ) -> GetLogEventsResponse
-newGetLogEventsResponse'  customize = (GetLogEventsResponse <<< customize) { "events": (NullOrUndefined Nothing), "nextBackwardToken": (NullOrUndefined Nothing), "nextForwardToken": (NullOrUndefined Nothing) }
+newGetLogEventsResponse' :: ( { "events" :: Maybe (OutputLogEvents) , "nextForwardToken" :: Maybe (NextToken) , "nextBackwardToken" :: Maybe (NextToken) } -> {"events" :: Maybe (OutputLogEvents) , "nextForwardToken" :: Maybe (NextToken) , "nextBackwardToken" :: Maybe (NextToken) } ) -> GetLogEventsResponse
+newGetLogEventsResponse'  customize = (GetLogEventsResponse <<< customize) { "events": Nothing, "nextBackwardToken": Nothing, "nextForwardToken": Nothing }
 
 
 
@@ -1169,7 +1168,7 @@ instance encodeInvalidParameterException :: Encode InvalidParameterException whe
 
 -- | <p>The sequence token is not valid.</p>
 newtype InvalidSequenceTokenException = InvalidSequenceTokenException 
-  { "expectedSequenceToken" :: NullOrUndefined (SequenceToken)
+  { "expectedSequenceToken" :: Maybe (SequenceToken)
   }
 derive instance newtypeInvalidSequenceTokenException :: Newtype InvalidSequenceTokenException _
 derive instance repGenericInvalidSequenceTokenException :: Generic InvalidSequenceTokenException _
@@ -1179,12 +1178,12 @@ instance encodeInvalidSequenceTokenException :: Encode InvalidSequenceTokenExcep
 
 -- | Constructs InvalidSequenceTokenException from required parameters
 newInvalidSequenceTokenException :: InvalidSequenceTokenException
-newInvalidSequenceTokenException  = InvalidSequenceTokenException { "expectedSequenceToken": (NullOrUndefined Nothing) }
+newInvalidSequenceTokenException  = InvalidSequenceTokenException { "expectedSequenceToken": Nothing }
 
 -- | Constructs InvalidSequenceTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidSequenceTokenException' :: ( { "expectedSequenceToken" :: NullOrUndefined (SequenceToken) } -> {"expectedSequenceToken" :: NullOrUndefined (SequenceToken) } ) -> InvalidSequenceTokenException
-newInvalidSequenceTokenException'  customize = (InvalidSequenceTokenException <<< customize) { "expectedSequenceToken": (NullOrUndefined Nothing) }
+newInvalidSequenceTokenException' :: ( { "expectedSequenceToken" :: Maybe (SequenceToken) } -> {"expectedSequenceToken" :: Maybe (SequenceToken) } ) -> InvalidSequenceTokenException
+newInvalidSequenceTokenException'  customize = (InvalidSequenceTokenException <<< customize) { "expectedSequenceToken": Nothing }
 
 
 
@@ -1228,7 +1227,7 @@ newListTagsLogGroupRequest' _logGroupName customize = (ListTagsLogGroupRequest <
 
 
 newtype ListTagsLogGroupResponse = ListTagsLogGroupResponse 
-  { "tags" :: NullOrUndefined (Tags)
+  { "tags" :: Maybe (Tags)
   }
 derive instance newtypeListTagsLogGroupResponse :: Newtype ListTagsLogGroupResponse _
 derive instance repGenericListTagsLogGroupResponse :: Generic ListTagsLogGroupResponse _
@@ -1238,12 +1237,12 @@ instance encodeListTagsLogGroupResponse :: Encode ListTagsLogGroupResponse where
 
 -- | Constructs ListTagsLogGroupResponse from required parameters
 newListTagsLogGroupResponse :: ListTagsLogGroupResponse
-newListTagsLogGroupResponse  = ListTagsLogGroupResponse { "tags": (NullOrUndefined Nothing) }
+newListTagsLogGroupResponse  = ListTagsLogGroupResponse { "tags": Nothing }
 
 -- | Constructs ListTagsLogGroupResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsLogGroupResponse' :: ( { "tags" :: NullOrUndefined (Tags) } -> {"tags" :: NullOrUndefined (Tags) } ) -> ListTagsLogGroupResponse
-newListTagsLogGroupResponse'  customize = (ListTagsLogGroupResponse <<< customize) { "tags": (NullOrUndefined Nothing) }
+newListTagsLogGroupResponse' :: ( { "tags" :: Maybe (Tags) } -> {"tags" :: Maybe (Tags) } ) -> ListTagsLogGroupResponse
+newListTagsLogGroupResponse'  customize = (ListTagsLogGroupResponse <<< customize) { "tags": Nothing }
 
 
 
@@ -1258,13 +1257,13 @@ instance encodeLogEventIndex :: Encode LogEventIndex where encode = genericEncod
 
 -- | <p>Represents a log group.</p>
 newtype LogGroup = LogGroup 
-  { "logGroupName" :: NullOrUndefined (LogGroupName)
-  , "creationTime" :: NullOrUndefined (Types.Timestamp)
-  , "retentionInDays" :: NullOrUndefined (Days)
-  , "metricFilterCount" :: NullOrUndefined (FilterCount)
-  , "arn" :: NullOrUndefined (Arn)
-  , "storedBytes" :: NullOrUndefined (StoredBytes)
-  , "kmsKeyId" :: NullOrUndefined (KmsKeyId)
+  { "logGroupName" :: Maybe (LogGroupName)
+  , "creationTime" :: Maybe (Types.Timestamp)
+  , "retentionInDays" :: Maybe (Days)
+  , "metricFilterCount" :: Maybe (FilterCount)
+  , "arn" :: Maybe (Arn)
+  , "storedBytes" :: Maybe (StoredBytes)
+  , "kmsKeyId" :: Maybe (KmsKeyId)
   }
 derive instance newtypeLogGroup :: Newtype LogGroup _
 derive instance repGenericLogGroup :: Generic LogGroup _
@@ -1274,12 +1273,12 @@ instance encodeLogGroup :: Encode LogGroup where encode = genericEncode options
 
 -- | Constructs LogGroup from required parameters
 newLogGroup :: LogGroup
-newLogGroup  = LogGroup { "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "kmsKeyId": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricFilterCount": (NullOrUndefined Nothing), "retentionInDays": (NullOrUndefined Nothing), "storedBytes": (NullOrUndefined Nothing) }
+newLogGroup  = LogGroup { "arn": Nothing, "creationTime": Nothing, "kmsKeyId": Nothing, "logGroupName": Nothing, "metricFilterCount": Nothing, "retentionInDays": Nothing, "storedBytes": Nothing }
 
 -- | Constructs LogGroup's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLogGroup' :: ( { "logGroupName" :: NullOrUndefined (LogGroupName) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "retentionInDays" :: NullOrUndefined (Days) , "metricFilterCount" :: NullOrUndefined (FilterCount) , "arn" :: NullOrUndefined (Arn) , "storedBytes" :: NullOrUndefined (StoredBytes) , "kmsKeyId" :: NullOrUndefined (KmsKeyId) } -> {"logGroupName" :: NullOrUndefined (LogGroupName) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "retentionInDays" :: NullOrUndefined (Days) , "metricFilterCount" :: NullOrUndefined (FilterCount) , "arn" :: NullOrUndefined (Arn) , "storedBytes" :: NullOrUndefined (StoredBytes) , "kmsKeyId" :: NullOrUndefined (KmsKeyId) } ) -> LogGroup
-newLogGroup'  customize = (LogGroup <<< customize) { "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "kmsKeyId": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricFilterCount": (NullOrUndefined Nothing), "retentionInDays": (NullOrUndefined Nothing), "storedBytes": (NullOrUndefined Nothing) }
+newLogGroup' :: ( { "logGroupName" :: Maybe (LogGroupName) , "creationTime" :: Maybe (Types.Timestamp) , "retentionInDays" :: Maybe (Days) , "metricFilterCount" :: Maybe (FilterCount) , "arn" :: Maybe (Arn) , "storedBytes" :: Maybe (StoredBytes) , "kmsKeyId" :: Maybe (KmsKeyId) } -> {"logGroupName" :: Maybe (LogGroupName) , "creationTime" :: Maybe (Types.Timestamp) , "retentionInDays" :: Maybe (Days) , "metricFilterCount" :: Maybe (FilterCount) , "arn" :: Maybe (Arn) , "storedBytes" :: Maybe (StoredBytes) , "kmsKeyId" :: Maybe (KmsKeyId) } ) -> LogGroup
+newLogGroup'  customize = (LogGroup <<< customize) { "arn": Nothing, "creationTime": Nothing, "kmsKeyId": Nothing, "logGroupName": Nothing, "metricFilterCount": Nothing, "retentionInDays": Nothing, "storedBytes": Nothing }
 
 
 
@@ -1303,14 +1302,14 @@ instance encodeLogGroups :: Encode LogGroups where encode = genericEncode option
 
 -- | <p>Represents a log stream, which is a sequence of log events from a single emitter of logs.</p>
 newtype LogStream = LogStream 
-  { "logStreamName" :: NullOrUndefined (LogStreamName)
-  , "creationTime" :: NullOrUndefined (Types.Timestamp)
-  , "firstEventTimestamp" :: NullOrUndefined (Types.Timestamp)
-  , "lastEventTimestamp" :: NullOrUndefined (Types.Timestamp)
-  , "lastIngestionTime" :: NullOrUndefined (Types.Timestamp)
-  , "uploadSequenceToken" :: NullOrUndefined (SequenceToken)
-  , "arn" :: NullOrUndefined (Arn)
-  , "storedBytes" :: NullOrUndefined (StoredBytes)
+  { "logStreamName" :: Maybe (LogStreamName)
+  , "creationTime" :: Maybe (Types.Timestamp)
+  , "firstEventTimestamp" :: Maybe (Types.Timestamp)
+  , "lastEventTimestamp" :: Maybe (Types.Timestamp)
+  , "lastIngestionTime" :: Maybe (Types.Timestamp)
+  , "uploadSequenceToken" :: Maybe (SequenceToken)
+  , "arn" :: Maybe (Arn)
+  , "storedBytes" :: Maybe (StoredBytes)
   }
 derive instance newtypeLogStream :: Newtype LogStream _
 derive instance repGenericLogStream :: Generic LogStream _
@@ -1320,12 +1319,12 @@ instance encodeLogStream :: Encode LogStream where encode = genericEncode option
 
 -- | Constructs LogStream from required parameters
 newLogStream :: LogStream
-newLogStream  = LogStream { "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "firstEventTimestamp": (NullOrUndefined Nothing), "lastEventTimestamp": (NullOrUndefined Nothing), "lastIngestionTime": (NullOrUndefined Nothing), "logStreamName": (NullOrUndefined Nothing), "storedBytes": (NullOrUndefined Nothing), "uploadSequenceToken": (NullOrUndefined Nothing) }
+newLogStream  = LogStream { "arn": Nothing, "creationTime": Nothing, "firstEventTimestamp": Nothing, "lastEventTimestamp": Nothing, "lastIngestionTime": Nothing, "logStreamName": Nothing, "storedBytes": Nothing, "uploadSequenceToken": Nothing }
 
 -- | Constructs LogStream's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLogStream' :: ( { "logStreamName" :: NullOrUndefined (LogStreamName) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "firstEventTimestamp" :: NullOrUndefined (Types.Timestamp) , "lastEventTimestamp" :: NullOrUndefined (Types.Timestamp) , "lastIngestionTime" :: NullOrUndefined (Types.Timestamp) , "uploadSequenceToken" :: NullOrUndefined (SequenceToken) , "arn" :: NullOrUndefined (Arn) , "storedBytes" :: NullOrUndefined (StoredBytes) } -> {"logStreamName" :: NullOrUndefined (LogStreamName) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "firstEventTimestamp" :: NullOrUndefined (Types.Timestamp) , "lastEventTimestamp" :: NullOrUndefined (Types.Timestamp) , "lastIngestionTime" :: NullOrUndefined (Types.Timestamp) , "uploadSequenceToken" :: NullOrUndefined (SequenceToken) , "arn" :: NullOrUndefined (Arn) , "storedBytes" :: NullOrUndefined (StoredBytes) } ) -> LogStream
-newLogStream'  customize = (LogStream <<< customize) { "arn": (NullOrUndefined Nothing), "creationTime": (NullOrUndefined Nothing), "firstEventTimestamp": (NullOrUndefined Nothing), "lastEventTimestamp": (NullOrUndefined Nothing), "lastIngestionTime": (NullOrUndefined Nothing), "logStreamName": (NullOrUndefined Nothing), "storedBytes": (NullOrUndefined Nothing), "uploadSequenceToken": (NullOrUndefined Nothing) }
+newLogStream' :: ( { "logStreamName" :: Maybe (LogStreamName) , "creationTime" :: Maybe (Types.Timestamp) , "firstEventTimestamp" :: Maybe (Types.Timestamp) , "lastEventTimestamp" :: Maybe (Types.Timestamp) , "lastIngestionTime" :: Maybe (Types.Timestamp) , "uploadSequenceToken" :: Maybe (SequenceToken) , "arn" :: Maybe (Arn) , "storedBytes" :: Maybe (StoredBytes) } -> {"logStreamName" :: Maybe (LogStreamName) , "creationTime" :: Maybe (Types.Timestamp) , "firstEventTimestamp" :: Maybe (Types.Timestamp) , "lastEventTimestamp" :: Maybe (Types.Timestamp) , "lastIngestionTime" :: Maybe (Types.Timestamp) , "uploadSequenceToken" :: Maybe (SequenceToken) , "arn" :: Maybe (Arn) , "storedBytes" :: Maybe (StoredBytes) } ) -> LogStream
+newLogStream'  customize = (LogStream <<< customize) { "arn": Nothing, "creationTime": Nothing, "firstEventTimestamp": Nothing, "lastEventTimestamp": Nothing, "lastIngestionTime": Nothing, "logStreamName": Nothing, "storedBytes": Nothing, "uploadSequenceToken": Nothing }
 
 
 
@@ -1358,11 +1357,11 @@ instance encodeLogStreams :: Encode LogStreams where encode = genericEncode opti
 
 -- | <p>Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.</p>
 newtype MetricFilter = MetricFilter 
-  { "filterName" :: NullOrUndefined (FilterName)
-  , "filterPattern" :: NullOrUndefined (FilterPattern)
-  , "metricTransformations" :: NullOrUndefined (MetricTransformations)
-  , "creationTime" :: NullOrUndefined (Types.Timestamp)
-  , "logGroupName" :: NullOrUndefined (LogGroupName)
+  { "filterName" :: Maybe (FilterName)
+  , "filterPattern" :: Maybe (FilterPattern)
+  , "metricTransformations" :: Maybe (MetricTransformations)
+  , "creationTime" :: Maybe (Types.Timestamp)
+  , "logGroupName" :: Maybe (LogGroupName)
   }
 derive instance newtypeMetricFilter :: Newtype MetricFilter _
 derive instance repGenericMetricFilter :: Generic MetricFilter _
@@ -1372,20 +1371,20 @@ instance encodeMetricFilter :: Encode MetricFilter where encode = genericEncode 
 
 -- | Constructs MetricFilter from required parameters
 newMetricFilter :: MetricFilter
-newMetricFilter  = MetricFilter { "creationTime": (NullOrUndefined Nothing), "filterName": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricTransformations": (NullOrUndefined Nothing) }
+newMetricFilter  = MetricFilter { "creationTime": Nothing, "filterName": Nothing, "filterPattern": Nothing, "logGroupName": Nothing, "metricTransformations": Nothing }
 
 -- | Constructs MetricFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMetricFilter' :: ( { "filterName" :: NullOrUndefined (FilterName) , "filterPattern" :: NullOrUndefined (FilterPattern) , "metricTransformations" :: NullOrUndefined (MetricTransformations) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "logGroupName" :: NullOrUndefined (LogGroupName) } -> {"filterName" :: NullOrUndefined (FilterName) , "filterPattern" :: NullOrUndefined (FilterPattern) , "metricTransformations" :: NullOrUndefined (MetricTransformations) , "creationTime" :: NullOrUndefined (Types.Timestamp) , "logGroupName" :: NullOrUndefined (LogGroupName) } ) -> MetricFilter
-newMetricFilter'  customize = (MetricFilter <<< customize) { "creationTime": (NullOrUndefined Nothing), "filterName": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "metricTransformations": (NullOrUndefined Nothing) }
+newMetricFilter' :: ( { "filterName" :: Maybe (FilterName) , "filterPattern" :: Maybe (FilterPattern) , "metricTransformations" :: Maybe (MetricTransformations) , "creationTime" :: Maybe (Types.Timestamp) , "logGroupName" :: Maybe (LogGroupName) } -> {"filterName" :: Maybe (FilterName) , "filterPattern" :: Maybe (FilterPattern) , "metricTransformations" :: Maybe (MetricTransformations) , "creationTime" :: Maybe (Types.Timestamp) , "logGroupName" :: Maybe (LogGroupName) } ) -> MetricFilter
+newMetricFilter'  customize = (MetricFilter <<< customize) { "creationTime": Nothing, "filterName": Nothing, "filterPattern": Nothing, "logGroupName": Nothing, "metricTransformations": Nothing }
 
 
 
 -- | <p>Represents a matched event.</p>
 newtype MetricFilterMatchRecord = MetricFilterMatchRecord 
-  { "eventNumber" :: NullOrUndefined (EventNumber)
-  , "eventMessage" :: NullOrUndefined (EventMessage)
-  , "extractedValues" :: NullOrUndefined (ExtractedValues)
+  { "eventNumber" :: Maybe (EventNumber)
+  , "eventMessage" :: Maybe (EventMessage)
+  , "extractedValues" :: Maybe (ExtractedValues)
   }
 derive instance newtypeMetricFilterMatchRecord :: Newtype MetricFilterMatchRecord _
 derive instance repGenericMetricFilterMatchRecord :: Generic MetricFilterMatchRecord _
@@ -1395,12 +1394,12 @@ instance encodeMetricFilterMatchRecord :: Encode MetricFilterMatchRecord where e
 
 -- | Constructs MetricFilterMatchRecord from required parameters
 newMetricFilterMatchRecord :: MetricFilterMatchRecord
-newMetricFilterMatchRecord  = MetricFilterMatchRecord { "eventMessage": (NullOrUndefined Nothing), "eventNumber": (NullOrUndefined Nothing), "extractedValues": (NullOrUndefined Nothing) }
+newMetricFilterMatchRecord  = MetricFilterMatchRecord { "eventMessage": Nothing, "eventNumber": Nothing, "extractedValues": Nothing }
 
 -- | Constructs MetricFilterMatchRecord's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMetricFilterMatchRecord' :: ( { "eventNumber" :: NullOrUndefined (EventNumber) , "eventMessage" :: NullOrUndefined (EventMessage) , "extractedValues" :: NullOrUndefined (ExtractedValues) } -> {"eventNumber" :: NullOrUndefined (EventNumber) , "eventMessage" :: NullOrUndefined (EventMessage) , "extractedValues" :: NullOrUndefined (ExtractedValues) } ) -> MetricFilterMatchRecord
-newMetricFilterMatchRecord'  customize = (MetricFilterMatchRecord <<< customize) { "eventMessage": (NullOrUndefined Nothing), "eventNumber": (NullOrUndefined Nothing), "extractedValues": (NullOrUndefined Nothing) }
+newMetricFilterMatchRecord' :: ( { "eventNumber" :: Maybe (EventNumber) , "eventMessage" :: Maybe (EventMessage) , "extractedValues" :: Maybe (ExtractedValues) } -> {"eventNumber" :: Maybe (EventNumber) , "eventMessage" :: Maybe (EventMessage) , "extractedValues" :: Maybe (ExtractedValues) } ) -> MetricFilterMatchRecord
+newMetricFilterMatchRecord'  customize = (MetricFilterMatchRecord <<< customize) { "eventMessage": Nothing, "eventNumber": Nothing, "extractedValues": Nothing }
 
 
 
@@ -1446,7 +1445,7 @@ newtype MetricTransformation = MetricTransformation
   { "metricName" :: (MetricName)
   , "metricNamespace" :: (MetricNamespace)
   , "metricValue" :: (MetricValue)
-  , "defaultValue" :: NullOrUndefined (DefaultValue)
+  , "defaultValue" :: Maybe (DefaultValue)
   }
 derive instance newtypeMetricTransformation :: Newtype MetricTransformation _
 derive instance repGenericMetricTransformation :: Generic MetricTransformation _
@@ -1456,12 +1455,12 @@ instance encodeMetricTransformation :: Encode MetricTransformation where encode 
 
 -- | Constructs MetricTransformation from required parameters
 newMetricTransformation :: MetricName -> MetricNamespace -> MetricValue -> MetricTransformation
-newMetricTransformation _metricName _metricNamespace _metricValue = MetricTransformation { "metricName": _metricName, "metricNamespace": _metricNamespace, "metricValue": _metricValue, "defaultValue": (NullOrUndefined Nothing) }
+newMetricTransformation _metricName _metricNamespace _metricValue = MetricTransformation { "metricName": _metricName, "metricNamespace": _metricNamespace, "metricValue": _metricValue, "defaultValue": Nothing }
 
 -- | Constructs MetricTransformation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMetricTransformation' :: MetricName -> MetricNamespace -> MetricValue -> ( { "metricName" :: (MetricName) , "metricNamespace" :: (MetricNamespace) , "metricValue" :: (MetricValue) , "defaultValue" :: NullOrUndefined (DefaultValue) } -> {"metricName" :: (MetricName) , "metricNamespace" :: (MetricNamespace) , "metricValue" :: (MetricValue) , "defaultValue" :: NullOrUndefined (DefaultValue) } ) -> MetricTransformation
-newMetricTransformation' _metricName _metricNamespace _metricValue customize = (MetricTransformation <<< customize) { "metricName": _metricName, "metricNamespace": _metricNamespace, "metricValue": _metricValue, "defaultValue": (NullOrUndefined Nothing) }
+newMetricTransformation' :: MetricName -> MetricNamespace -> MetricValue -> ( { "metricName" :: (MetricName) , "metricNamespace" :: (MetricNamespace) , "metricValue" :: (MetricValue) , "defaultValue" :: Maybe (DefaultValue) } -> {"metricName" :: (MetricName) , "metricNamespace" :: (MetricNamespace) , "metricValue" :: (MetricValue) , "defaultValue" :: Maybe (DefaultValue) } ) -> MetricTransformation
+newMetricTransformation' _metricName _metricNamespace _metricValue customize = (MetricTransformation <<< customize) { "metricName": _metricName, "metricNamespace": _metricNamespace, "metricValue": _metricValue, "defaultValue": Nothing }
 
 
 
@@ -1515,9 +1514,9 @@ instance encodeOrderBy :: Encode OrderBy where encode = genericEncode options
 
 -- | <p>Represents a log event.</p>
 newtype OutputLogEvent = OutputLogEvent 
-  { "timestamp" :: NullOrUndefined (Types.Timestamp)
-  , "message" :: NullOrUndefined (EventMessage)
-  , "ingestionTime" :: NullOrUndefined (Types.Timestamp)
+  { "timestamp" :: Maybe (Types.Timestamp)
+  , "message" :: Maybe (EventMessage)
+  , "ingestionTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeOutputLogEvent :: Newtype OutputLogEvent _
 derive instance repGenericOutputLogEvent :: Generic OutputLogEvent _
@@ -1527,12 +1526,12 @@ instance encodeOutputLogEvent :: Encode OutputLogEvent where encode = genericEnc
 
 -- | Constructs OutputLogEvent from required parameters
 newOutputLogEvent :: OutputLogEvent
-newOutputLogEvent  = OutputLogEvent { "ingestionTime": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing), "timestamp": (NullOrUndefined Nothing) }
+newOutputLogEvent  = OutputLogEvent { "ingestionTime": Nothing, "message": Nothing, "timestamp": Nothing }
 
 -- | Constructs OutputLogEvent's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOutputLogEvent' :: ( { "timestamp" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (EventMessage) , "ingestionTime" :: NullOrUndefined (Types.Timestamp) } -> {"timestamp" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (EventMessage) , "ingestionTime" :: NullOrUndefined (Types.Timestamp) } ) -> OutputLogEvent
-newOutputLogEvent'  customize = (OutputLogEvent <<< customize) { "ingestionTime": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing), "timestamp": (NullOrUndefined Nothing) }
+newOutputLogEvent' :: ( { "timestamp" :: Maybe (Types.Timestamp) , "message" :: Maybe (EventMessage) , "ingestionTime" :: Maybe (Types.Timestamp) } -> {"timestamp" :: Maybe (Types.Timestamp) , "message" :: Maybe (EventMessage) , "ingestionTime" :: Maybe (Types.Timestamp) } ) -> OutputLogEvent
+newOutputLogEvent'  customize = (OutputLogEvent <<< customize) { "ingestionTime": Nothing, "message": Nothing, "timestamp": Nothing }
 
 
 
@@ -1607,7 +1606,7 @@ newPutDestinationRequest' _destinationName _roleArn _targetArn customize = (PutD
 
 
 newtype PutDestinationResponse = PutDestinationResponse 
-  { "destination" :: NullOrUndefined (Destination)
+  { "destination" :: Maybe (Destination)
   }
 derive instance newtypePutDestinationResponse :: Newtype PutDestinationResponse _
 derive instance repGenericPutDestinationResponse :: Generic PutDestinationResponse _
@@ -1617,12 +1616,12 @@ instance encodePutDestinationResponse :: Encode PutDestinationResponse where enc
 
 -- | Constructs PutDestinationResponse from required parameters
 newPutDestinationResponse :: PutDestinationResponse
-newPutDestinationResponse  = PutDestinationResponse { "destination": (NullOrUndefined Nothing) }
+newPutDestinationResponse  = PutDestinationResponse { "destination": Nothing }
 
 -- | Constructs PutDestinationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutDestinationResponse' :: ( { "destination" :: NullOrUndefined (Destination) } -> {"destination" :: NullOrUndefined (Destination) } ) -> PutDestinationResponse
-newPutDestinationResponse'  customize = (PutDestinationResponse <<< customize) { "destination": (NullOrUndefined Nothing) }
+newPutDestinationResponse' :: ( { "destination" :: Maybe (Destination) } -> {"destination" :: Maybe (Destination) } ) -> PutDestinationResponse
+newPutDestinationResponse'  customize = (PutDestinationResponse <<< customize) { "destination": Nothing }
 
 
 
@@ -1630,7 +1629,7 @@ newtype PutLogEventsRequest = PutLogEventsRequest
   { "logGroupName" :: (LogGroupName)
   , "logStreamName" :: (LogStreamName)
   , "logEvents" :: (InputLogEvents)
-  , "sequenceToken" :: NullOrUndefined (SequenceToken)
+  , "sequenceToken" :: Maybe (SequenceToken)
   }
 derive instance newtypePutLogEventsRequest :: Newtype PutLogEventsRequest _
 derive instance repGenericPutLogEventsRequest :: Generic PutLogEventsRequest _
@@ -1640,18 +1639,18 @@ instance encodePutLogEventsRequest :: Encode PutLogEventsRequest where encode = 
 
 -- | Constructs PutLogEventsRequest from required parameters
 newPutLogEventsRequest :: InputLogEvents -> LogGroupName -> LogStreamName -> PutLogEventsRequest
-newPutLogEventsRequest _logEvents _logGroupName _logStreamName = PutLogEventsRequest { "logEvents": _logEvents, "logGroupName": _logGroupName, "logStreamName": _logStreamName, "sequenceToken": (NullOrUndefined Nothing) }
+newPutLogEventsRequest _logEvents _logGroupName _logStreamName = PutLogEventsRequest { "logEvents": _logEvents, "logGroupName": _logGroupName, "logStreamName": _logStreamName, "sequenceToken": Nothing }
 
 -- | Constructs PutLogEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutLogEventsRequest' :: InputLogEvents -> LogGroupName -> LogStreamName -> ( { "logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "logEvents" :: (InputLogEvents) , "sequenceToken" :: NullOrUndefined (SequenceToken) } -> {"logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "logEvents" :: (InputLogEvents) , "sequenceToken" :: NullOrUndefined (SequenceToken) } ) -> PutLogEventsRequest
-newPutLogEventsRequest' _logEvents _logGroupName _logStreamName customize = (PutLogEventsRequest <<< customize) { "logEvents": _logEvents, "logGroupName": _logGroupName, "logStreamName": _logStreamName, "sequenceToken": (NullOrUndefined Nothing) }
+newPutLogEventsRequest' :: InputLogEvents -> LogGroupName -> LogStreamName -> ( { "logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "logEvents" :: (InputLogEvents) , "sequenceToken" :: Maybe (SequenceToken) } -> {"logGroupName" :: (LogGroupName) , "logStreamName" :: (LogStreamName) , "logEvents" :: (InputLogEvents) , "sequenceToken" :: Maybe (SequenceToken) } ) -> PutLogEventsRequest
+newPutLogEventsRequest' _logEvents _logGroupName _logStreamName customize = (PutLogEventsRequest <<< customize) { "logEvents": _logEvents, "logGroupName": _logGroupName, "logStreamName": _logStreamName, "sequenceToken": Nothing }
 
 
 
 newtype PutLogEventsResponse = PutLogEventsResponse 
-  { "nextSequenceToken" :: NullOrUndefined (SequenceToken)
-  , "rejectedLogEventsInfo" :: NullOrUndefined (RejectedLogEventsInfo)
+  { "nextSequenceToken" :: Maybe (SequenceToken)
+  , "rejectedLogEventsInfo" :: Maybe (RejectedLogEventsInfo)
   }
 derive instance newtypePutLogEventsResponse :: Newtype PutLogEventsResponse _
 derive instance repGenericPutLogEventsResponse :: Generic PutLogEventsResponse _
@@ -1661,12 +1660,12 @@ instance encodePutLogEventsResponse :: Encode PutLogEventsResponse where encode 
 
 -- | Constructs PutLogEventsResponse from required parameters
 newPutLogEventsResponse :: PutLogEventsResponse
-newPutLogEventsResponse  = PutLogEventsResponse { "nextSequenceToken": (NullOrUndefined Nothing), "rejectedLogEventsInfo": (NullOrUndefined Nothing) }
+newPutLogEventsResponse  = PutLogEventsResponse { "nextSequenceToken": Nothing, "rejectedLogEventsInfo": Nothing }
 
 -- | Constructs PutLogEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutLogEventsResponse' :: ( { "nextSequenceToken" :: NullOrUndefined (SequenceToken) , "rejectedLogEventsInfo" :: NullOrUndefined (RejectedLogEventsInfo) } -> {"nextSequenceToken" :: NullOrUndefined (SequenceToken) , "rejectedLogEventsInfo" :: NullOrUndefined (RejectedLogEventsInfo) } ) -> PutLogEventsResponse
-newPutLogEventsResponse'  customize = (PutLogEventsResponse <<< customize) { "nextSequenceToken": (NullOrUndefined Nothing), "rejectedLogEventsInfo": (NullOrUndefined Nothing) }
+newPutLogEventsResponse' :: ( { "nextSequenceToken" :: Maybe (SequenceToken) , "rejectedLogEventsInfo" :: Maybe (RejectedLogEventsInfo) } -> {"nextSequenceToken" :: Maybe (SequenceToken) , "rejectedLogEventsInfo" :: Maybe (RejectedLogEventsInfo) } ) -> PutLogEventsResponse
+newPutLogEventsResponse'  customize = (PutLogEventsResponse <<< customize) { "nextSequenceToken": Nothing, "rejectedLogEventsInfo": Nothing }
 
 
 
@@ -1694,8 +1693,8 @@ newPutMetricFilterRequest' _filterName _filterPattern _logGroupName _metricTrans
 
 
 newtype PutResourcePolicyRequest = PutResourcePolicyRequest 
-  { "policyName" :: NullOrUndefined (PolicyName)
-  , "policyDocument" :: NullOrUndefined (PolicyDocument)
+  { "policyName" :: Maybe (PolicyName)
+  , "policyDocument" :: Maybe (PolicyDocument)
   }
 derive instance newtypePutResourcePolicyRequest :: Newtype PutResourcePolicyRequest _
 derive instance repGenericPutResourcePolicyRequest :: Generic PutResourcePolicyRequest _
@@ -1705,17 +1704,17 @@ instance encodePutResourcePolicyRequest :: Encode PutResourcePolicyRequest where
 
 -- | Constructs PutResourcePolicyRequest from required parameters
 newPutResourcePolicyRequest :: PutResourcePolicyRequest
-newPutResourcePolicyRequest  = PutResourcePolicyRequest { "policyDocument": (NullOrUndefined Nothing), "policyName": (NullOrUndefined Nothing) }
+newPutResourcePolicyRequest  = PutResourcePolicyRequest { "policyDocument": Nothing, "policyName": Nothing }
 
 -- | Constructs PutResourcePolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutResourcePolicyRequest' :: ( { "policyName" :: NullOrUndefined (PolicyName) , "policyDocument" :: NullOrUndefined (PolicyDocument) } -> {"policyName" :: NullOrUndefined (PolicyName) , "policyDocument" :: NullOrUndefined (PolicyDocument) } ) -> PutResourcePolicyRequest
-newPutResourcePolicyRequest'  customize = (PutResourcePolicyRequest <<< customize) { "policyDocument": (NullOrUndefined Nothing), "policyName": (NullOrUndefined Nothing) }
+newPutResourcePolicyRequest' :: ( { "policyName" :: Maybe (PolicyName) , "policyDocument" :: Maybe (PolicyDocument) } -> {"policyName" :: Maybe (PolicyName) , "policyDocument" :: Maybe (PolicyDocument) } ) -> PutResourcePolicyRequest
+newPutResourcePolicyRequest'  customize = (PutResourcePolicyRequest <<< customize) { "policyDocument": Nothing, "policyName": Nothing }
 
 
 
 newtype PutResourcePolicyResponse = PutResourcePolicyResponse 
-  { "resourcePolicy" :: NullOrUndefined (ResourcePolicy)
+  { "resourcePolicy" :: Maybe (ResourcePolicy)
   }
 derive instance newtypePutResourcePolicyResponse :: Newtype PutResourcePolicyResponse _
 derive instance repGenericPutResourcePolicyResponse :: Generic PutResourcePolicyResponse _
@@ -1725,12 +1724,12 @@ instance encodePutResourcePolicyResponse :: Encode PutResourcePolicyResponse whe
 
 -- | Constructs PutResourcePolicyResponse from required parameters
 newPutResourcePolicyResponse :: PutResourcePolicyResponse
-newPutResourcePolicyResponse  = PutResourcePolicyResponse { "resourcePolicy": (NullOrUndefined Nothing) }
+newPutResourcePolicyResponse  = PutResourcePolicyResponse { "resourcePolicy": Nothing }
 
 -- | Constructs PutResourcePolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutResourcePolicyResponse' :: ( { "resourcePolicy" :: NullOrUndefined (ResourcePolicy) } -> {"resourcePolicy" :: NullOrUndefined (ResourcePolicy) } ) -> PutResourcePolicyResponse
-newPutResourcePolicyResponse'  customize = (PutResourcePolicyResponse <<< customize) { "resourcePolicy": (NullOrUndefined Nothing) }
+newPutResourcePolicyResponse' :: ( { "resourcePolicy" :: Maybe (ResourcePolicy) } -> {"resourcePolicy" :: Maybe (ResourcePolicy) } ) -> PutResourcePolicyResponse
+newPutResourcePolicyResponse'  customize = (PutResourcePolicyResponse <<< customize) { "resourcePolicy": Nothing }
 
 
 
@@ -1760,8 +1759,8 @@ newtype PutSubscriptionFilterRequest = PutSubscriptionFilterRequest
   , "filterName" :: (FilterName)
   , "filterPattern" :: (FilterPattern)
   , "destinationArn" :: (DestinationArn)
-  , "roleArn" :: NullOrUndefined (RoleArn)
-  , "distribution" :: NullOrUndefined (Distribution)
+  , "roleArn" :: Maybe (RoleArn)
+  , "distribution" :: Maybe (Distribution)
   }
 derive instance newtypePutSubscriptionFilterRequest :: Newtype PutSubscriptionFilterRequest _
 derive instance repGenericPutSubscriptionFilterRequest :: Generic PutSubscriptionFilterRequest _
@@ -1771,20 +1770,20 @@ instance encodePutSubscriptionFilterRequest :: Encode PutSubscriptionFilterReque
 
 -- | Constructs PutSubscriptionFilterRequest from required parameters
 newPutSubscriptionFilterRequest :: DestinationArn -> FilterName -> FilterPattern -> LogGroupName -> PutSubscriptionFilterRequest
-newPutSubscriptionFilterRequest _destinationArn _filterName _filterPattern _logGroupName = PutSubscriptionFilterRequest { "destinationArn": _destinationArn, "filterName": _filterName, "filterPattern": _filterPattern, "logGroupName": _logGroupName, "distribution": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing) }
+newPutSubscriptionFilterRequest _destinationArn _filterName _filterPattern _logGroupName = PutSubscriptionFilterRequest { "destinationArn": _destinationArn, "filterName": _filterName, "filterPattern": _filterPattern, "logGroupName": _logGroupName, "distribution": Nothing, "roleArn": Nothing }
 
 -- | Constructs PutSubscriptionFilterRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutSubscriptionFilterRequest' :: DestinationArn -> FilterName -> FilterPattern -> LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "filterName" :: (FilterName) , "filterPattern" :: (FilterPattern) , "destinationArn" :: (DestinationArn) , "roleArn" :: NullOrUndefined (RoleArn) , "distribution" :: NullOrUndefined (Distribution) } -> {"logGroupName" :: (LogGroupName) , "filterName" :: (FilterName) , "filterPattern" :: (FilterPattern) , "destinationArn" :: (DestinationArn) , "roleArn" :: NullOrUndefined (RoleArn) , "distribution" :: NullOrUndefined (Distribution) } ) -> PutSubscriptionFilterRequest
-newPutSubscriptionFilterRequest' _destinationArn _filterName _filterPattern _logGroupName customize = (PutSubscriptionFilterRequest <<< customize) { "destinationArn": _destinationArn, "filterName": _filterName, "filterPattern": _filterPattern, "logGroupName": _logGroupName, "distribution": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing) }
+newPutSubscriptionFilterRequest' :: DestinationArn -> FilterName -> FilterPattern -> LogGroupName -> ( { "logGroupName" :: (LogGroupName) , "filterName" :: (FilterName) , "filterPattern" :: (FilterPattern) , "destinationArn" :: (DestinationArn) , "roleArn" :: Maybe (RoleArn) , "distribution" :: Maybe (Distribution) } -> {"logGroupName" :: (LogGroupName) , "filterName" :: (FilterName) , "filterPattern" :: (FilterPattern) , "destinationArn" :: (DestinationArn) , "roleArn" :: Maybe (RoleArn) , "distribution" :: Maybe (Distribution) } ) -> PutSubscriptionFilterRequest
+newPutSubscriptionFilterRequest' _destinationArn _filterName _filterPattern _logGroupName customize = (PutSubscriptionFilterRequest <<< customize) { "destinationArn": _destinationArn, "filterName": _filterName, "filterPattern": _filterPattern, "logGroupName": _logGroupName, "distribution": Nothing, "roleArn": Nothing }
 
 
 
 -- | <p>Represents the rejected events.</p>
 newtype RejectedLogEventsInfo = RejectedLogEventsInfo 
-  { "tooNewLogEventStartIndex" :: NullOrUndefined (LogEventIndex)
-  , "tooOldLogEventEndIndex" :: NullOrUndefined (LogEventIndex)
-  , "expiredLogEventEndIndex" :: NullOrUndefined (LogEventIndex)
+  { "tooNewLogEventStartIndex" :: Maybe (LogEventIndex)
+  , "tooOldLogEventEndIndex" :: Maybe (LogEventIndex)
+  , "expiredLogEventEndIndex" :: Maybe (LogEventIndex)
   }
 derive instance newtypeRejectedLogEventsInfo :: Newtype RejectedLogEventsInfo _
 derive instance repGenericRejectedLogEventsInfo :: Generic RejectedLogEventsInfo _
@@ -1794,12 +1793,12 @@ instance encodeRejectedLogEventsInfo :: Encode RejectedLogEventsInfo where encod
 
 -- | Constructs RejectedLogEventsInfo from required parameters
 newRejectedLogEventsInfo :: RejectedLogEventsInfo
-newRejectedLogEventsInfo  = RejectedLogEventsInfo { "expiredLogEventEndIndex": (NullOrUndefined Nothing), "tooNewLogEventStartIndex": (NullOrUndefined Nothing), "tooOldLogEventEndIndex": (NullOrUndefined Nothing) }
+newRejectedLogEventsInfo  = RejectedLogEventsInfo { "expiredLogEventEndIndex": Nothing, "tooNewLogEventStartIndex": Nothing, "tooOldLogEventEndIndex": Nothing }
 
 -- | Constructs RejectedLogEventsInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRejectedLogEventsInfo' :: ( { "tooNewLogEventStartIndex" :: NullOrUndefined (LogEventIndex) , "tooOldLogEventEndIndex" :: NullOrUndefined (LogEventIndex) , "expiredLogEventEndIndex" :: NullOrUndefined (LogEventIndex) } -> {"tooNewLogEventStartIndex" :: NullOrUndefined (LogEventIndex) , "tooOldLogEventEndIndex" :: NullOrUndefined (LogEventIndex) , "expiredLogEventEndIndex" :: NullOrUndefined (LogEventIndex) } ) -> RejectedLogEventsInfo
-newRejectedLogEventsInfo'  customize = (RejectedLogEventsInfo <<< customize) { "expiredLogEventEndIndex": (NullOrUndefined Nothing), "tooNewLogEventStartIndex": (NullOrUndefined Nothing), "tooOldLogEventEndIndex": (NullOrUndefined Nothing) }
+newRejectedLogEventsInfo' :: ( { "tooNewLogEventStartIndex" :: Maybe (LogEventIndex) , "tooOldLogEventEndIndex" :: Maybe (LogEventIndex) , "expiredLogEventEndIndex" :: Maybe (LogEventIndex) } -> {"tooNewLogEventStartIndex" :: Maybe (LogEventIndex) , "tooOldLogEventEndIndex" :: Maybe (LogEventIndex) , "expiredLogEventEndIndex" :: Maybe (LogEventIndex) } ) -> RejectedLogEventsInfo
+newRejectedLogEventsInfo'  customize = (RejectedLogEventsInfo <<< customize) { "expiredLogEventEndIndex": Nothing, "tooNewLogEventStartIndex": Nothing, "tooOldLogEventEndIndex": Nothing }
 
 
 
@@ -1834,9 +1833,9 @@ instance encodeResourcePolicies :: Encode ResourcePolicies where encode = generi
 
 -- | <p>A policy enabling one or more entities to put logs to a log group in this account.</p>
 newtype ResourcePolicy = ResourcePolicy 
-  { "policyName" :: NullOrUndefined (PolicyName)
-  , "policyDocument" :: NullOrUndefined (PolicyDocument)
-  , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp)
+  { "policyName" :: Maybe (PolicyName)
+  , "policyDocument" :: Maybe (PolicyDocument)
+  , "lastUpdatedTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeResourcePolicy :: Newtype ResourcePolicy _
 derive instance repGenericResourcePolicy :: Generic ResourcePolicy _
@@ -1846,12 +1845,12 @@ instance encodeResourcePolicy :: Encode ResourcePolicy where encode = genericEnc
 
 -- | Constructs ResourcePolicy from required parameters
 newResourcePolicy :: ResourcePolicy
-newResourcePolicy  = ResourcePolicy { "lastUpdatedTime": (NullOrUndefined Nothing), "policyDocument": (NullOrUndefined Nothing), "policyName": (NullOrUndefined Nothing) }
+newResourcePolicy  = ResourcePolicy { "lastUpdatedTime": Nothing, "policyDocument": Nothing, "policyName": Nothing }
 
 -- | Constructs ResourcePolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourcePolicy' :: ( { "policyName" :: NullOrUndefined (PolicyName) , "policyDocument" :: NullOrUndefined (PolicyDocument) , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) } -> {"policyName" :: NullOrUndefined (PolicyName) , "policyDocument" :: NullOrUndefined (PolicyDocument) , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) } ) -> ResourcePolicy
-newResourcePolicy'  customize = (ResourcePolicy <<< customize) { "lastUpdatedTime": (NullOrUndefined Nothing), "policyDocument": (NullOrUndefined Nothing), "policyName": (NullOrUndefined Nothing) }
+newResourcePolicy' :: ( { "policyName" :: Maybe (PolicyName) , "policyDocument" :: Maybe (PolicyDocument) , "lastUpdatedTime" :: Maybe (Types.Timestamp) } -> {"policyName" :: Maybe (PolicyName) , "policyDocument" :: Maybe (PolicyDocument) , "lastUpdatedTime" :: Maybe (Types.Timestamp) } ) -> ResourcePolicy
+newResourcePolicy'  customize = (ResourcePolicy <<< customize) { "lastUpdatedTime": Nothing, "policyDocument": Nothing, "policyName": Nothing }
 
 
 
@@ -1866,8 +1865,8 @@ instance encodeRoleArn :: Encode RoleArn where encode = genericEncode options
 
 -- | <p>Represents the search status of a log stream.</p>
 newtype SearchedLogStream = SearchedLogStream 
-  { "logStreamName" :: NullOrUndefined (LogStreamName)
-  , "searchedCompletely" :: NullOrUndefined (LogStreamSearchedCompletely)
+  { "logStreamName" :: Maybe (LogStreamName)
+  , "searchedCompletely" :: Maybe (LogStreamSearchedCompletely)
   }
 derive instance newtypeSearchedLogStream :: Newtype SearchedLogStream _
 derive instance repGenericSearchedLogStream :: Generic SearchedLogStream _
@@ -1877,12 +1876,12 @@ instance encodeSearchedLogStream :: Encode SearchedLogStream where encode = gene
 
 -- | Constructs SearchedLogStream from required parameters
 newSearchedLogStream :: SearchedLogStream
-newSearchedLogStream  = SearchedLogStream { "logStreamName": (NullOrUndefined Nothing), "searchedCompletely": (NullOrUndefined Nothing) }
+newSearchedLogStream  = SearchedLogStream { "logStreamName": Nothing, "searchedCompletely": Nothing }
 
 -- | Constructs SearchedLogStream's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSearchedLogStream' :: ( { "logStreamName" :: NullOrUndefined (LogStreamName) , "searchedCompletely" :: NullOrUndefined (LogStreamSearchedCompletely) } -> {"logStreamName" :: NullOrUndefined (LogStreamName) , "searchedCompletely" :: NullOrUndefined (LogStreamSearchedCompletely) } ) -> SearchedLogStream
-newSearchedLogStream'  customize = (SearchedLogStream <<< customize) { "logStreamName": (NullOrUndefined Nothing), "searchedCompletely": (NullOrUndefined Nothing) }
+newSearchedLogStream' :: ( { "logStreamName" :: Maybe (LogStreamName) , "searchedCompletely" :: Maybe (LogStreamSearchedCompletely) } -> {"logStreamName" :: Maybe (LogStreamName) , "searchedCompletely" :: Maybe (LogStreamSearchedCompletely) } ) -> SearchedLogStream
+newSearchedLogStream'  customize = (SearchedLogStream <<< customize) { "logStreamName": Nothing, "searchedCompletely": Nothing }
 
 
 
@@ -1934,13 +1933,13 @@ instance encodeStoredBytes :: Encode StoredBytes where encode = genericEncode op
 
 -- | <p>Represents a subscription filter.</p>
 newtype SubscriptionFilter = SubscriptionFilter 
-  { "filterName" :: NullOrUndefined (FilterName)
-  , "logGroupName" :: NullOrUndefined (LogGroupName)
-  , "filterPattern" :: NullOrUndefined (FilterPattern)
-  , "destinationArn" :: NullOrUndefined (DestinationArn)
-  , "roleArn" :: NullOrUndefined (RoleArn)
-  , "distribution" :: NullOrUndefined (Distribution)
-  , "creationTime" :: NullOrUndefined (Types.Timestamp)
+  { "filterName" :: Maybe (FilterName)
+  , "logGroupName" :: Maybe (LogGroupName)
+  , "filterPattern" :: Maybe (FilterPattern)
+  , "destinationArn" :: Maybe (DestinationArn)
+  , "roleArn" :: Maybe (RoleArn)
+  , "distribution" :: Maybe (Distribution)
+  , "creationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeSubscriptionFilter :: Newtype SubscriptionFilter _
 derive instance repGenericSubscriptionFilter :: Generic SubscriptionFilter _
@@ -1950,12 +1949,12 @@ instance encodeSubscriptionFilter :: Encode SubscriptionFilter where encode = ge
 
 -- | Constructs SubscriptionFilter from required parameters
 newSubscriptionFilter :: SubscriptionFilter
-newSubscriptionFilter  = SubscriptionFilter { "creationTime": (NullOrUndefined Nothing), "destinationArn": (NullOrUndefined Nothing), "distribution": (NullOrUndefined Nothing), "filterName": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing) }
+newSubscriptionFilter  = SubscriptionFilter { "creationTime": Nothing, "destinationArn": Nothing, "distribution": Nothing, "filterName": Nothing, "filterPattern": Nothing, "logGroupName": Nothing, "roleArn": Nothing }
 
 -- | Constructs SubscriptionFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubscriptionFilter' :: ( { "filterName" :: NullOrUndefined (FilterName) , "logGroupName" :: NullOrUndefined (LogGroupName) , "filterPattern" :: NullOrUndefined (FilterPattern) , "destinationArn" :: NullOrUndefined (DestinationArn) , "roleArn" :: NullOrUndefined (RoleArn) , "distribution" :: NullOrUndefined (Distribution) , "creationTime" :: NullOrUndefined (Types.Timestamp) } -> {"filterName" :: NullOrUndefined (FilterName) , "logGroupName" :: NullOrUndefined (LogGroupName) , "filterPattern" :: NullOrUndefined (FilterPattern) , "destinationArn" :: NullOrUndefined (DestinationArn) , "roleArn" :: NullOrUndefined (RoleArn) , "distribution" :: NullOrUndefined (Distribution) , "creationTime" :: NullOrUndefined (Types.Timestamp) } ) -> SubscriptionFilter
-newSubscriptionFilter'  customize = (SubscriptionFilter <<< customize) { "creationTime": (NullOrUndefined Nothing), "destinationArn": (NullOrUndefined Nothing), "distribution": (NullOrUndefined Nothing), "filterName": (NullOrUndefined Nothing), "filterPattern": (NullOrUndefined Nothing), "logGroupName": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing) }
+newSubscriptionFilter' :: ( { "filterName" :: Maybe (FilterName) , "logGroupName" :: Maybe (LogGroupName) , "filterPattern" :: Maybe (FilterPattern) , "destinationArn" :: Maybe (DestinationArn) , "roleArn" :: Maybe (RoleArn) , "distribution" :: Maybe (Distribution) , "creationTime" :: Maybe (Types.Timestamp) } -> {"filterName" :: Maybe (FilterName) , "logGroupName" :: Maybe (LogGroupName) , "filterPattern" :: Maybe (FilterPattern) , "destinationArn" :: Maybe (DestinationArn) , "roleArn" :: Maybe (RoleArn) , "distribution" :: Maybe (Distribution) , "creationTime" :: Maybe (Types.Timestamp) } ) -> SubscriptionFilter
+newSubscriptionFilter'  customize = (SubscriptionFilter <<< customize) { "creationTime": Nothing, "destinationArn": Nothing, "distribution": Nothing, "filterName": Nothing, "filterPattern": Nothing, "logGroupName": Nothing, "roleArn": Nothing }
 
 
 
@@ -2065,7 +2064,7 @@ newTestMetricFilterRequest' _filterPattern _logEventMessages customize = (TestMe
 
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse 
-  { "matches" :: NullOrUndefined (MetricFilterMatches)
+  { "matches" :: Maybe (MetricFilterMatches)
   }
 derive instance newtypeTestMetricFilterResponse :: Newtype TestMetricFilterResponse _
 derive instance repGenericTestMetricFilterResponse :: Generic TestMetricFilterResponse _
@@ -2075,12 +2074,12 @@ instance encodeTestMetricFilterResponse :: Encode TestMetricFilterResponse where
 
 -- | Constructs TestMetricFilterResponse from required parameters
 newTestMetricFilterResponse :: TestMetricFilterResponse
-newTestMetricFilterResponse  = TestMetricFilterResponse { "matches": (NullOrUndefined Nothing) }
+newTestMetricFilterResponse  = TestMetricFilterResponse { "matches": Nothing }
 
 -- | Constructs TestMetricFilterResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestMetricFilterResponse' :: ( { "matches" :: NullOrUndefined (MetricFilterMatches) } -> {"matches" :: NullOrUndefined (MetricFilterMatches) } ) -> TestMetricFilterResponse
-newTestMetricFilterResponse'  customize = (TestMetricFilterResponse <<< customize) { "matches": (NullOrUndefined Nothing) }
+newTestMetricFilterResponse' :: ( { "matches" :: Maybe (MetricFilterMatches) } -> {"matches" :: Maybe (MetricFilterMatches) } ) -> TestMetricFilterResponse
+newTestMetricFilterResponse'  customize = (TestMetricFilterResponse <<< customize) { "matches": Nothing }
 
 
 

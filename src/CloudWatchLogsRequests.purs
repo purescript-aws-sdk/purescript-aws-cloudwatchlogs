@@ -13,13 +13,13 @@ import AWS.CloudWatchLogs.Types as CloudWatchLogsTypes
 
 
 -- | <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p> <p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p> <p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
-associateKmsKey :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.AssociateKmsKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+associateKmsKey :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.AssociateKmsKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 associateKmsKey (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "associateKmsKey"
 
 
 -- | <p>Cancels the specified export task.</p> <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
-cancelExportTask :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CancelExportTaskRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+cancelExportTask :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CancelExportTaskRequest -> Aff (exception :: EXCEPTION | eff) Unit
 cancelExportTask (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "cancelExportTask"
 
@@ -31,55 +31,55 @@ createExportTask (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl 
 
 
 -- | <p>Creates a log group with the specified name.</p> <p>You can create up to 5000 log groups per account.</p> <p>You must use the following guidelines when naming a log group:</p> <ul> <li> <p>Log group names must be unique within a region for an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512 characters long.</p> </li> <li> <p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
-createLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CreateLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+createLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CreateLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Unit
 createLogGroup (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "createLogGroup"
 
 
 -- | <p>Creates a log stream for the specified log group.</p> <p>There is no limit on the number of log streams that you can create for a log group.</p> <p>You must use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log stream names must be unique within the log group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul>
-createLogStream :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CreateLogStreamRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+createLogStream :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.CreateLogStreamRequest -> Aff (exception :: EXCEPTION | eff) Unit
 createLogStream (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "createLogStream"
 
 
 -- | <p>Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.</p>
-deleteDestination :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteDestinationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteDestination :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteDestinationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteDestination (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteDestination"
 
 
 -- | <p>Deletes the specified log group and permanently deletes all the archived log events associated with the log group.</p>
-deleteLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteLogGroup (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteLogGroup"
 
 
 -- | <p>Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.</p>
-deleteLogStream :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteLogStreamRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteLogStream :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteLogStreamRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteLogStream (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteLogStream"
 
 
 -- | <p>Deletes the specified metric filter.</p>
-deleteMetricFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteMetricFilterRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteMetricFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteMetricFilterRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteMetricFilter (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteMetricFilter"
 
 
 -- | <p>Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.</p>
-deleteResourcePolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteResourcePolicyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteResourcePolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteResourcePolicyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteResourcePolicy (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteResourcePolicy"
 
 
 -- | <p>Deletes the specified retention policy.</p> <p>Log events do not expire if they belong to log groups without a retention policy.</p>
-deleteRetentionPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteRetentionPolicyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteRetentionPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteRetentionPolicyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteRetentionPolicy (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteRetentionPolicy"
 
 
 -- | <p>Deletes the specified subscription filter.</p>
-deleteSubscriptionFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteSubscriptionFilterRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteSubscriptionFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DeleteSubscriptionFilterRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteSubscriptionFilter (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteSubscriptionFilter"
 
@@ -127,7 +127,7 @@ describeSubscriptionFilters (CloudWatchLogs.Service serviceImpl) = AWS.request s
 
 
 -- | <p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p> <p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
-disassociateKmsKey :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DisassociateKmsKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+disassociateKmsKey :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.DisassociateKmsKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 disassociateKmsKey (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "disassociateKmsKey"
 
@@ -157,7 +157,7 @@ putDestination (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl me
 
 
 -- | <p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>
-putDestinationPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutDestinationPolicyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putDestinationPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutDestinationPolicyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putDestinationPolicy (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putDestinationPolicy"
 
@@ -169,7 +169,7 @@ putLogEvents (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl meth
 
 
 -- | <p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a>PutLogEvents</a>.</p> <p>The maximum number of metric filters that can be associated with a log group is 100.</p>
-putMetricFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutMetricFilterRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putMetricFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutMetricFilterRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putMetricFilter (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putMetricFilter"
 
@@ -181,19 +181,19 @@ putResourcePolicy (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl
 
 
 -- | <p>Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.</p>
-putRetentionPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutRetentionPolicyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putRetentionPolicy :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutRetentionPolicyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putRetentionPolicy (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putRetentionPolicy"
 
 
 -- | <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p> <ul> <li> <p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>A logical destination that belongs to a different account, for cross-account delivery.</p> </li> <li> <p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> </ul> <p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
-putSubscriptionFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutSubscriptionFilterRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putSubscriptionFilter :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.PutSubscriptionFilterRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putSubscriptionFilter (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putSubscriptionFilter"
 
 
 -- | <p>Adds or updates the specified tags for the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p> <p>For more information about tags, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
-tagLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.TagLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+tagLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.TagLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Unit
 tagLogGroup (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "tagLogGroup"
 
@@ -205,6 +205,6 @@ testMetricFilter (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl 
 
 
 -- | <p>Removes the specified tags from the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To add tags, use <a>UntagLogGroup</a>.</p>
-untagLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.UntagLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+untagLogGroup :: forall eff. CloudWatchLogs.Service -> CloudWatchLogsTypes.UntagLogGroupRequest -> Aff (exception :: EXCEPTION | eff) Unit
 untagLogGroup (CloudWatchLogs.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "untagLogGroup"
